@@ -17,14 +17,16 @@ const Navbar = () => {
     <div className="fixed top-0 left-0 w-full py-4 z-[99999]">
       <div className="container">
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-poppins">Indi Technology</h1>
+          <h1 className="text-3xl font-poppins font-bold text-blue-900 prose">
+            <span className="text-gray-800 font-black">Indi</span> Technology
+          </h1>
 
           <nav
             ref={navRef}
-            className="absolute top-0 -right-96 ease-out duration-300 transition-transform h-screen bg-black text-white w-[300px] flex justify-center">
+            className="absolute top-0 -right-96 ease-out duration-300 transition-transform h-screen bg-gray-900 text-white w-[300px] flex justify-center">
             <ul className="mt-16 text-2xl">
               {navItem.map((item, key) => (
-                <li className="my-4 text-white hover:text-blue-500" key={key}>
+                <li className="my-10 text-white hover:text-blue-500" key={key}>
                   <Link to={"#"}>{item}</Link>
                 </li>
               ))}
@@ -40,7 +42,7 @@ const Navbar = () => {
 
 const Button = React.memo(({ isActive, toggleButton }) => (
   <button
-    className={`z-[99999] ${isActive ? "hamburger-active" : ""}`}
+    className={`z-[99999] ${isActive ? "hamburger-active" : ""} scale-75 md:scale-100`}
     onClick={toggleButton}>
     <span className="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
     <span className="hamburger-line transition duration-300 ease-in-out"></span>

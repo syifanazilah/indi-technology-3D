@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 canvas {
-    @apply w-screen h-screen;
+    @apply w-screen h-screen bg-sky-200;
 }
 
 .hamburger-line {
-	@apply w-[30px] h-[2px] my-2 block bg-black;
+	@apply w-[35px] h-[4px] rounded-full my-2 block bg-blue-900;
 }
 
 .hamburger-active > span {
