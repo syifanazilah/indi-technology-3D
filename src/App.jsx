@@ -5,23 +5,19 @@ import "./App.css";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Navbar from "./components/Navbar";
+import { Outlet, useLocation } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   return (
     <>
-      <Navbar />
+      <Navbar isHome={isHome} />
 
-      <Canvas className="w-full min-h-screen">
-        {/* orbit controls */}
-        <OrbitControls autoRotate />
-
-        <mesh>
-          <boxGeometry />
-          <meshBasicMaterial color={"blue"} />
-        </mesh>
-      </Canvas>
+      <main className={`${isHome ? "" : "pt-20 container"}`}>
+        <Outlet />
+      </main>
     </>
   );
 }

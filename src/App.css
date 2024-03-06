@@ -6,8 +6,12 @@ canvas {
     @apply w-screen h-screen bg-gradient-to-t from-sky-200 to-sky-400;
 }
 
+body{
+	@apply bg-zinc-950 text-white;
+}
+
 .hamburger-line {
-	@apply w-[35px] h-[4px] rounded-full my-2 block bg-white;
+	@apply w-[35px] h-[4px] rounded-full my-2 block;
 }
 
 .hamburger-active > span {
