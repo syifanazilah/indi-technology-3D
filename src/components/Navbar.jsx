@@ -1,5 +1,4 @@
-import { useCallback, useRef, useState } from "react";
-import React from "react";
+import { memo, useCallback, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ isHome = false }) => {
@@ -57,7 +56,7 @@ const Navbar = ({ isHome = false }) => {
   );
 };
 
-const Button = React.memo(({ isActive, toggleButton, isHome }) => (
+const Button = memo(({ isActive, toggleButton, isHome }) => (
   <button
     className={`z-[99999] ${
       isActive ? "hamburger-active" : ""
