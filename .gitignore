@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 INDI_PROJECT1
+inditechno-3D
 
 # Editor directories and files
 .vscode/*
