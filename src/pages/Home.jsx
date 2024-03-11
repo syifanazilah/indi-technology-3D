@@ -1,36 +1,70 @@
-import { OrbitControls, useGLTF } from "@react-three/drei";
-import { Canvas, extend } from "@react-three/fiber";
-import { Suspense, useState } from "react";
-import Greeting from "./Greeting";
-extend({OrbitControls});
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Canvas, extend, useFrame } from "@react-three/fiber";
+import { Suspense, useRef, useState } from "react";
+import Island from "../components/models/Island";
+import Rumah from "../components/models/home";
+import Puzzle from "../components/models/puzzle";
+import Tangan from "../components/models/tangan";
+import RumahAsap from "../components/models/rumahasap";
+import Rocket from "../components/models/rocket";
+extend({ OrbitControls });
 
-const Island = () => {
-  const gltf = useGLTF("/island.glb");
-  return <primitive object={gltf.scene} key={gltf} scale={0.1} />;
+const Scene = () => {
+  const cameraRef = useRef();
+  const objectRef = useRef();
+
+  useFrame((state, delta, frame) => {
+    const { position } = objectRef.current;
+
+  });
+
+  const adjustIslandForScreenSize = () => {
+    let screenScale, screenPosition;
+
+    if (window.innerWidth < 768) {
+      screenScale = [0.9, 0.9, 0.9];
+      screenPosition = [0, -6.5, -43.4];
+    } else {
+      screenScale = [1, 1, 1];
+      screenPosition = [0, -6.5, -43.4];
+    }
+
+    return [screenScale, screenPosition];
+  };
+
+  return (
+    <>
+      <PerspectiveCamera position={[0, 15, -40]} ref={cameraRef} makeDefault />;
+      {/* lightning */}
+      <ambientLight intensity={5} />
+      <OrbitControls
+        enableRotate={true}
+        enablePan={false}
+        maxPolarAngle={Math.PI / 2.5}
+        minPolarAngle={1}
+        maxDistance={60}
+        minDistance={40}
+      />
+      <group ref={objectRef}>
+        <Rocket />
+        <Tangan />
+        <Puzzle />
+        <Rumah />
+        <RumahAsap />
+        <Island />
+      </group>
+    </>
+  );
 };
 
 const Home = () => {
-  const [isIslandLoaded, setIsIslandLoaded] = useState(false);
-  console.log(isIslandLoaded);
-
-  const handleIslandLoaded = () => {
-    setIsIslandLoaded(true);
-    console.log(isIslandLoaded);
-  };
   return (
     <div className="overflow-y-hidden">
-      <Greeting />
+      {/* <Greeting /> */}
 
-      <Canvas
-        className="w-full min-h-screen"
-        camera={{ position: [0, 10, -20] }}>
+      <Canvas className="w-full min-h-screen" camera={{ manual: true }}>
         <Suspense fallback={null}>
-          {/* lightning */}
-          <ambientLight intensity={5} />
-
-          <OrbitControls autoRotate minZoom={10} maxZoom={10} />
-
-          <Island />
+          <Scene />
         </Suspense>
       </Canvas>
     </div>
