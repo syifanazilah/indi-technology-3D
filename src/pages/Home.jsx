@@ -1,42 +1,45 @@
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera, useHelper } from "@react-three/drei";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Island from "../components/models/Island";
 import Rumah from "../components/models/home";
 import Puzzle from "../components/models/puzzle";
 import Tangan from "../components/models/tangan";
 import RumahAsap from "../components/models/rumahasap";
 import Rocket from "../components/models/rocket";
+import { DirectionalLightHelper } from "three";
+import { useControls } from "leva";
+import Sun from "../components/models/sun";
 extend({ OrbitControls });
 
 const Scene = () => {
   const cameraRef = useRef();
   const objectRef = useRef();
+  const lightRef = useRef();
 
-  useFrame((state, delta, frame) => {
-    const { position } = objectRef.current;
+  // const {rotation} = useControls({
+  //   rotation: {
+  //     value: 0,
+  //     min: 0,
+  //     max: Math.PI
+  //   }
+  // })
 
-  });
+  useFrame((state, delta, frame) => {});
 
-  const adjustIslandForScreenSize = () => {
-    let screenScale, screenPosition;
-
-    if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
-      screenPosition = [0, -6.5, -43.4];
-    } else {
-      screenScale = [1, 1, 1];
-      screenPosition = [0, -6.5, -43.4];
-    }
-
-    return [screenScale, screenPosition];
-  };
+  useHelper(lightRef, DirectionalLightHelper, 0.5);
 
   return (
     <>
       <PerspectiveCamera position={[0, 15, -40]} ref={cameraRef} makeDefault />;
       {/* lightning */}
-      <ambientLight intensity={5} />
+      <ambientLight intensity={1} />
+      <directionalLight
+        scale={2}
+        position={[10, 20, 100]}
+        intensity={6}
+        ref={lightRef}
+      />
       <OrbitControls
         enableRotate={true}
         enablePan={false}
@@ -45,7 +48,8 @@ const Scene = () => {
         maxDistance={60}
         minDistance={40}
       />
-      <group ref={objectRef}>
+      {/* object 3D */}
+      <group ref={objectRef} rotation={[0, 3.03, 0]}>
         <Rocket />
         <Tangan />
         <Puzzle />

@@ -4,7 +4,11 @@ import adjusctScale from "../../func/adjustScale";
 
 const Rumah = () => {
     const gltf = useGLTF(rumah);
-    return <primitive object={gltf.scene} key={gltf} scale={adjusctScale()} />;
+    return (
+      <group>
+        <primitive object={gltf.scene} key={gltf} scale={adjusctScale()} />
+      </group>
+    );
   };
 
 export default Rumah;
