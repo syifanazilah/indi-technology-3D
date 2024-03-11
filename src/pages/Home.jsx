@@ -9,7 +9,6 @@ import RumahAsap from "../components/models/rumahasap";
 import Rocket from "../components/models/rocket";
 import { DirectionalLightHelper } from "three";
 import { useControls } from "leva";
-import Sun from "../components/models/sun";
 extend({ OrbitControls });
 
 const Scene = () => {
