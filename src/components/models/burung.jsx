@@ -1,22 +1,23 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
-import tangan from "../../assets/3D/tangan.glb";
+import burung from "../../assets/3D/burung.glb";
 import adjusctScale from "../../func/adjustScale";
 import { useEffect } from "react";
 
-const Tangan = () => {
-  const gltf = useGLTF(tangan);
+const Burung = () => {
+  const gltf = useGLTF(burung);
   const { ref, actions, names } = useAnimations(gltf.animations);
+
   useEffect(() => {
     names.forEach((name) => {
-      actions[name].play();
-    })
-  }, [actions, names]);
+        actions[name].play();
+      });
+  }, []);
 
   return (
-    <group ref={ref}>
+    <group ref={ref} castShadow receiveShadow>
       <primitive object={gltf.scene} key={gltf} scale={adjusctScale()} />
     </group>
   );
 };
 
-export default Tangan;
+export default Burung;

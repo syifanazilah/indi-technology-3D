@@ -32,11 +32,11 @@ const Scene = () => {
     <>
       <PerspectiveCamera position={[0, 15, -40]} ref={cameraRef} makeDefault />;
       {/* lightning */}
-      <ambientLight intensity={1} />
+      <ambientLight intensity={1.5} />
       <directionalLight
         scale={2}
         position={[10, 20, 100]}
-        intensity={6}
+        intensity={5}
         ref={lightRef}
       />
       <OrbitControls
