@@ -1,21 +1,18 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import burung from "../../assets/3D/burung.glb";
 import adjusctScale from "../../func/adjustScale";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 
 const Burung = () => {
-  const gltf = useGLTF(burung);
-  const { ref, actions, names } = useAnimations(gltf.animations);
-
-  useEffect(() => {
-    names.forEach((name) => {
-        actions[name].play();
-      });
-  }, []);
+  const ref = useRef();
+  const { scene, nodes, animations } = useGLTF(burung);
 
   return (
-    <group ref={ref} castShadow receiveShadow>
-      <primitive object={gltf.scene} key={gltf} scale={adjusctScale()} />
+    <group castShadow receiveShadow>
+      <group ref={ref}>
+        <primitive object={scene} key={nodes} position={[0, 0, 0]} />
+      </group>
     </group>
   );
 };

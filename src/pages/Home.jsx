@@ -66,7 +66,7 @@ const Home = () => {
       {/* <Greeting /> */}
 
       <Canvas className="w-full min-h-screen" camera={{ manual: true }}>
-        <Suspense fallback={null}>
+        <Suspense>
           <Scene />
         </Suspense>
       </Canvas>

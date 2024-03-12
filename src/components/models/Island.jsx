@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { AnimationMixer } from "three";
 import Pohon from "./pohon";
 import Burung from "./burung";
+// import { Burung1 } from "./burung1";
 
 const Island = () => {
   const gltf = useGLTF(island);
@@ -18,7 +19,7 @@ const Island = () => {
   return (
     <group ref={ref} castShadow receiveShadow>
       <Pohon />
-      <Burung/>
+      <Burung />
       <primitive
         object={gltf.scene}
         key={gltf}
