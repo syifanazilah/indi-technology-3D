@@ -9,9 +9,10 @@ import RumahAsap from "../components/models/rumahasap";
 import Rocket from "../components/models/rocket";
 import { DirectionalLightHelper } from "three";
 import { useControls } from "leva";
+import HomeContent from "../components/HomeContent";
 extend({ OrbitControls });
 
-const Scene = () => {
+const Scene = ({ setCurrentStage }) => {
   const cameraRef = useRef();
   const objectRef = useRef();
   const lightRef = useRef();
@@ -24,13 +25,41 @@ const Scene = () => {
   //   }
   // })
 
-  useFrame((state, delta, frame) => {});
+  useFrame((state, delta, frame) => {
+    const cameraPosition = cameraRef.current.position;
+
+    if (
+      cameraPosition.x >= -25 &&
+      cameraPosition.x <= 10 &&
+      cameraPosition.z >= -45 &&
+      cameraPosition.z <= -30
+    ) {
+      setCurrentStage(1);
+    } else if (
+      cameraPosition.x >= -40 &&
+      cameraPosition.x <= -20 &&
+      cameraPosition.z >= 5 &&
+      cameraPosition.z <= 25
+    ) {
+      setCurrentStage(2);
+    } else if (cameraPosition.x >= -10 && cameraPosition.x <= 10) {
+      setCurrentStage(3);
+    } else if (
+      cameraPosition.z >= -5 &&
+      cameraPosition.z <= 15 &&
+      cameraPosition.x >= 35
+    ) {
+      setCurrentStage(4);
+    } else {
+      setCurrentStage(null);
+    }
+  });
 
   useHelper(lightRef, DirectionalLightHelper, 0.5);
 
   return (
     <>
-      <PerspectiveCamera position={[0, 15, -40]} ref={cameraRef} makeDefault />;
+      <PerspectiveCamera position={[0, 10, -40]} ref={cameraRef} makeDefault />;
       {/* lightning */}
       <ambientLight intensity={1.5} />
       <directionalLight
@@ -42,13 +71,14 @@ const Scene = () => {
       <OrbitControls
         enableRotate={true}
         enablePan={false}
-        maxPolarAngle={Math.PI / 2.5}
-        minPolarAngle={1}
+        maxPolarAngle={1.4}
+        minPolarAngle={1.3}
         maxDistance={60}
         minDistance={40}
+        enableDamping
       />
       {/* object 3D */}
-      <group ref={objectRef} rotation={[0, 3.03, 0]}>
+      <group ref={objectRef} position={[0, -5, 0]} rotation={[0, 3.03, 0]}>
         <Rocket />
         <Tangan />
         <Puzzle />
@@ -61,13 +91,20 @@ const Scene = () => {
 };
 
 const Home = () => {
+  const [currentStage, setCurrentStage] = useState(0);
+
   return (
     <div className="overflow-y-hidden">
       {/* <Greeting /> */}
+      {currentStage && (
+        <div className="absolute top-20 left-1/2 flex items-center justify-center text-3xl -translate-x-1/2 w-[500px] h-[200px] bg-red-500/40 z-10">
+          <HomeContent currentStage={currentStage} />
+        </div>
+      )}
 
       <Canvas className="w-full min-h-screen" camera={{ manual: true }}>
         <Suspense>
-          <Scene />
+          <Scene setCurrentStage={setCurrentStage} />
         </Suspense>
       </Canvas>
     </div>
