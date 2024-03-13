@@ -60,7 +60,15 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
     }
   });
 
-  // useHelper(lightRef, DirectionalLightHelper, 0.5);
+  let screenScale;
+
+  if (window.innerWidth < 768) {
+    screenScale = -3;
+  } else {
+    screenScale = -5;
+  }
+
+  const positionY = window.innerWidth < 768 ? -3 : -5;
 
   return (
     <>
@@ -83,7 +91,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         enableDamping
       />
       {/* object 3D */}
-      <group ref={objectRef} position={[0, -5, 0]} rotation={[0, 3.03, 0]}>
+      <group ref={objectRef} position={[0, positionY, 0]} rotation={[0, 3.03, 0]}>
         <Rocket />
         <Tangan />
         <Puzzle />
@@ -104,7 +112,7 @@ const Home = () => {
       {/* <Greeting />*/}
       <div
         style={{ userSelect: "none" }}
-        className={`${isDisplay ? "home-content" : "home-content-hidden"} transition absolute top-40 left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
+        className={`${isDisplay ? "home-content" : "home-content-hidden"} transition container max-w-screen-md absolute top-24 md:top-40 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
         <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
       </div>
 
