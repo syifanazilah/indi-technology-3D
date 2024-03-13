@@ -35,3 +35,10 @@ body {
 .hamburger-active > span:nth-child(2) {
   @apply scale-0;
 }
+
+.home-content {
+  @apply transition-opacity duration-300 opacity-100; /* Transisi opacity dengan durasi 0.5 detik */
+}
+.home-content-hidden {
+  @apply transition-opacity duration-300 opacity-0;
+}

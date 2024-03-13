@@ -10,9 +10,10 @@ import Rocket from "../components/models/rocket";
 import { DirectionalLightHelper } from "three";
 import { useControls } from "leva";
 import HomeContent from "../components/HomeContent";
+import Greeting from "./Greeting";
 extend({ OrbitControls });
 
-const Scene = ({ setCurrentStage }) => {
+const Scene = ({ setCurrentStage, setIsDisplay }) => {
   const cameraRef = useRef();
   const objectRef = useRef();
   const lightRef = useRef();
@@ -36,22 +37,30 @@ const Scene = ({ setCurrentStage }) => {
     switch (true) {
       case posisiRumah:
         setCurrentStage(1);
+        setIsDisplay(true);
         break;
       case posisiRoket:
         setCurrentStage(2);
+        setIsDisplay(true);
+
         break;
       case posisiTangan:
         setCurrentStage(3);
+        setIsDisplay(true);
+
         break;
       case posisiPuzzle:
         setCurrentStage(4);
+        setIsDisplay(true);
+
         break;
       default:
-        setCurrentStage(null);
+        setIsDisplay(false);
+        break;
     }
   });
 
-  useHelper(lightRef, DirectionalLightHelper, 0.5);
+  // useHelper(lightRef, DirectionalLightHelper, 0.5);
 
   return (
     <>
@@ -87,22 +96,24 @@ const Scene = ({ setCurrentStage }) => {
 };
 
 const Home = () => {
-  const [currentStage, setCurrentStage] = useState(0);
+  const [currentStage, setCurrentStage] = useState(null);
+  const [isDisplay, setIsDisplay] = useState(false);
 
   return (
     <div className="overflow-y-hidden">
-      {/* <Greeting /> */}
-      {currentStage && (
-        <div
-          style={{ userSelect: "none" }}
-          className="absolute top-20 left-1/2 flex items-center justify-center text-3xl -translate-x-1/2 w-[500px] h-[200px] bg-red-500/40 z-10">
-          <HomeContent currentStage={currentStage} />
-        </div>
-      )}
+      {/* <Greeting />*/}
+      <div
+        style={{ userSelect: "none" }}
+        className={`${isDisplay ? "home-content" : "home-content-hidden"} transition absolute top-20 left-1/2 flex items-center justify-center text-3xl -translate-x-1/2 w-[500px] h-[200px]  z-10`}>
+        <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
+      </div>
 
       <Canvas className="w-full min-h-screen" camera={{ manual: true }}>
         <Suspense>
-          <Scene setCurrentStage={setCurrentStage} />
+          <Scene
+            setCurrentStage={setCurrentStage}
+            setIsDisplay={setIsDisplay}
+          />
         </Suspense>
       </Canvas>
     </div>
