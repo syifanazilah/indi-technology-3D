@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import rumahAsap from '../../assets/3D/rumahasap.glb';
-import adjusctScale from "../../func/adjustScale";
+import adjusctScale from "../../constant/adjustScale";
 
 const RumahAsap = () => {
     const gltf = useGLTF(rumahAsap);

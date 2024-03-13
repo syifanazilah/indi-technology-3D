@@ -1,6 +1,6 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import island from "../../assets/3D/scene.glb";
-import adjusctScale from "../../func/adjustScale";
+import adjusctScale from "../../constant/adjustScale";
 import { useEffect } from "react";
 import { AnimationMixer } from "three";
 import Pohon from "./pohon";

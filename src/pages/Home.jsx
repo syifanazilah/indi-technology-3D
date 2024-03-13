@@ -26,32 +26,28 @@ const Scene = ({ setCurrentStage }) => {
   // })
 
   useFrame((state, delta, frame) => {
-    const cameraPosition = cameraRef.current.position;
+    const { x, z } = cameraRef.current.position;
 
-    if (
-      cameraPosition.x >= -25 &&
-      cameraPosition.x <= 10 &&
-      cameraPosition.z >= -45 &&
-      cameraPosition.z <= -30
-    ) {
-      setCurrentStage(1);
-    } else if (
-      cameraPosition.x >= -40 &&
-      cameraPosition.x <= -20 &&
-      cameraPosition.z >= 5 &&
-      cameraPosition.z <= 25
-    ) {
-      setCurrentStage(2);
-    } else if (cameraPosition.x >= -10 && cameraPosition.x <= 10) {
-      setCurrentStage(3);
-    } else if (
-      cameraPosition.z >= -5 &&
-      cameraPosition.z <= 15 &&
-      cameraPosition.x >= 35
-    ) {
-      setCurrentStage(4);
-    } else {
-      setCurrentStage(null);
+    const posisiRumah = x >= -25 && x <= 10 && z >= -45 && z <= -30;
+    const posisiRoket = x >= -40 && x <= -20 && z >= 5 && z <= 25;
+    const posisiPuzzle = z >= -5 && z <= 15 && x >= 35;
+    const posisiTangan = x >= -10 && x <= 10;
+
+    switch (true) {
+      case posisiRumah:
+        setCurrentStage(1);
+        break;
+      case posisiRoket:
+        setCurrentStage(2);
+        break;
+      case posisiTangan:
+        setCurrentStage(3);
+        break;
+      case posisiPuzzle:
+        setCurrentStage(4);
+        break;
+      default:
+        setCurrentStage(null);
     }
   });
 
@@ -97,7 +93,9 @@ const Home = () => {
     <div className="overflow-y-hidden">
       {/* <Greeting /> */}
       {currentStage && (
-        <div className="absolute top-20 left-1/2 flex items-center justify-center text-3xl -translate-x-1/2 w-[500px] h-[200px] bg-red-500/40 z-10">
+        <div
+          style={{ userSelect: "none" }}
+          className="absolute top-20 left-1/2 flex items-center justify-center text-3xl -translate-x-1/2 w-[500px] h-[200px] bg-red-500/40 z-10">
           <HomeContent currentStage={currentStage} />
         </div>
       )}

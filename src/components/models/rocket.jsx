@@ -1,6 +1,6 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import rocket from "../../assets/3D/rocket.glb";
-import adjusctScale from "../../func/adjustScale";
+import adjusctScale from "../../constant/adjustScale";
 import { useEffect } from "react";
 
 const Rocket = () => {

@@ -1,7 +1,7 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useEffect } from "react";
 import pohon from "../../assets/3D/pohon.glb";
-import adjusctScale from "../../func/adjustScale";
+import adjusctScale from "../../constant/adjustScale";
 
 const Pohon = () => {
   const gltf = useGLTF(pohon);
