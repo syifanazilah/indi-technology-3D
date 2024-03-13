@@ -39,7 +39,7 @@ const Navbar = ({ isHome = false }) => {
             <ul className="mt-16 text-2xl">
               {navItem.map((item, key) => (
                 <li className="my-10 text-white hover:text-blue-500" key={key}>
-                  <Link to={item.url}>{item.name}</Link>
+                  <Link to={item.url} onClick={toggleButton}>{item.name}</Link>
                 </li>
               ))}
             </ul>

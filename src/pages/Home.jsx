@@ -7,7 +7,7 @@ import Puzzle from "../components/models/puzzle";
 import Tangan from "../components/models/tangan";
 import RumahAsap from "../components/models/rumahasap";
 import Rocket from "../components/models/rocket";
-import { DirectionalLightHelper } from "three";
+import { DirectionalLightHelper, MOUSE } from "three";
 import { useControls } from "leva";
 import HomeContent from "../components/HomeContent";
 import Greeting from "./Greeting";
@@ -88,10 +88,13 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         minPolarAngle={1.3}
         maxDistance={60}
         minDistance={40}
-        enableDamping
+        dampingFactor={0.03}
       />
       {/* object 3D */}
-      <group ref={objectRef} position={[0, positionY, 0]} rotation={[0, 3.03, 0]}>
+      <group
+        ref={objectRef}
+        position={[0, positionY, 0]}
+        rotation={[0, 3.03, 0]}>
         <Rocket />
         <Tangan />
         <Puzzle />
@@ -109,13 +112,14 @@ const Home = () => {
 
   return (
     <div className="overflow-y-hidden">
-      {/* <Greeting />*/}
+      <Greeting />
       <div
         style={{ userSelect: "none" }}
-        className={`${isDisplay ? "home-content" : "home-content-hidden"} transition container max-w-screen-md absolute top-24 md:top-40 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
+        className={`${
+          isDisplay ? "home-content" : "home-content-hidden"
+        } transition container max-w-screen-md absolute top-24 md:top-40 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
         <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
       </div>
-
       <Canvas className="w-full min-h-screen" camera={{ manual: true }}>
         <Suspense>
           <Scene

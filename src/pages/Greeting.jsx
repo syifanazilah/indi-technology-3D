@@ -1,9 +1,15 @@
 import { button } from "leva";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Greeting = ({isdisabled = false}) => {
+const Greeting = ({load3d}) => {
+  const buttonRef = useRef();
   const [open, setOpen] = useState(true);
+  const [disable, setDisable] = useState(true);
+
+  setTimeout(() => {
+    setDisable(false);
+  }, 1000);
 
   const handleClick = () => {
     setOpen(false);
@@ -36,9 +42,12 @@ const Greeting = ({isdisabled = false}) => {
           </section>
 
           <section className="md:ml-24 lg:ml-18 sm:ml-10">
-            <button className="text-white text-lg font-medium mx-8 my-24 bg-blue-700 px-10 py-4 rounded-full lg:text-xl md:text-lg hover:bg-white hover:text-zinc-950 duration-300" onClick={() => handleClick()}>
+            <button
+              ref={buttonRef}
+              className="text-white text-lg font-medium mx-8 my-24 min-w-[300px] bg-blue-700 px-10 py-4 rounded-full lg:text-xl md:text-lg hover:bg-white hover:text-zinc-950 duration-300"
+              onClick={() => handleClick()} disabled={disable}>
               <p type="button">
-                Explore our new world!
+                {disable ? "loading..." : "Explore our new world!"}
               </p>
             </button>
           </section>
