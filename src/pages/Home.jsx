@@ -104,7 +104,7 @@ const Home = () => {
       {/* <Greeting />*/}
       <div
         style={{ userSelect: "none" }}
-        className={`${isDisplay ? "home-content" : "home-content-hidden"} transition absolute top-20 left-1/2 flex items-center justify-center text-3xl -translate-x-1/2 w-[500px] h-[200px]  z-10`}>
+        className={`${isDisplay ? "home-content" : "home-content-hidden"} transition absolute top-40 left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
         <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
       </div>
 
