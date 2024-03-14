@@ -18,7 +18,7 @@ const Greeting = ({load3d}) => {
   return (
     <>
       {open && (
-        <div className="flex flex-col h-screen justify-center absolute top-0 z-[99999999999999] bg-zinc-950">
+        <div className="flex flex-col h-screen justify-center absolute overflow-x-hidden top-0 z-[99999999999999] bg-zinc-950">
           <section className="md:ml-24 lg:ml-18 md:mt-10 lg:mt-20 sm:mx-10">
             <h1 className="mx-8 text-2xl text-white mt-20 mb-3 font-semibold lg:text-4xl md:text-3xl sm:text-2xl">
               WELCOME TO

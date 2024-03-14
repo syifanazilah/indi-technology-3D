@@ -18,7 +18,7 @@ const Navbar = ({ isHome = false }) => {
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full py-4 z-[10]">
+    <div className="fixed top-0 left-0 w-full py-4 z-20">
       <div className="container">
         <div className="flex justify-between items-center">
           {isHome ? (
