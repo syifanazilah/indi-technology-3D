@@ -9,6 +9,12 @@ const Rumah = () => {
 
   useEffect(() => {
     actions[names[0]].play();
+    gltf.scene.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
   }, [actions, names]);
 
   return (

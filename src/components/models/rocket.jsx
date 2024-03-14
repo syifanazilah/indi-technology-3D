@@ -3,17 +3,23 @@ import rocket from "../../assets/3D/rocket.glb";
 import adjusctScale from "../../constant/adjustScale";
 import { useEffect } from "react";
 
-const Rocket = () => {
+const Rocket = ({ ...props }) => {
   const gltf = useGLTF(rocket);
   const { ref, actions, names } = useAnimations(gltf.animations);
 
   useEffect(() => {
     actions[names[0]].play();
-  }, [actions, names]);
+    gltf.scene.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        // child.receiveShadow = true;
+      }
+    });
+  }, []);
 
   return (
-    <group ref={ref}>
-      <primitive object={gltf.scene} key={gltf} scale={adjusctScale()} />
+    <group ref={ref}  {...props}>
+      <primitive object={gltf.scene} key={gltf} scale={adjusctScale()}/>
     </group>
   );
 };

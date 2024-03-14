@@ -7,24 +7,29 @@ import Pohon from "./pohon";
 import Burung from "./burung";
 // import { Burung1 } from "./burung1";
 
-const Island = () => {
+const Island = ({ ...props }) => {
   const gltf = useGLTF(island);
 
   const { ref, actions, names } = useAnimations(gltf.animations);
 
   useEffect(() => {
     actions[names[0]].play();
+    gltf.scene.traverse((child) => {
+      if (child.isMesh) {
+        // child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
   }, [actions, names]);
 
   return (
-    <group ref={ref} castShadow receiveShadow>
+    <group ref={ref} receiveShadow {...props}>
       <Pohon />
       <Burung />
       <primitive
         object={gltf.scene}
         key={gltf}
         scale={adjusctScale()}
-        castShadow
         receiveShadow
       />
     </group>

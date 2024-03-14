@@ -9,6 +9,12 @@ const Tangan = () => {
   useEffect(() => {
     names.forEach((name) => {
       actions[name].play();
+      gltf.scene.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
     })
   }, [actions, names]);
 

@@ -5,6 +5,7 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Greeting from "./pages/Greeting";
+import TestShadow from "./pages/tes";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
     ],
+  },
+  {
+    path: "/test",
+    element: <TestShadow />,
   },
 ]);
 
