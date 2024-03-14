@@ -114,8 +114,8 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         enablePan={false}
         maxPolarAngle={1.4}
         minPolarAngle={1.3}
-        // maxDistance={60}
-        // minDistance={40}
+        maxDistance={45}
+        minDistance={40}
         dampingFactor={0.03}
       />
       {/* object 3D */}
