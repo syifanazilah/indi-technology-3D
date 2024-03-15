@@ -7,7 +7,6 @@ const Loader = ({ progress ,...props }) => {
   const floor = Math.floor(progress);
 
   useEffect(() => {
-    console.log(isFinished);
     if (floor === 100 && !isFinished) {
       setIsFinished(true);
     }
