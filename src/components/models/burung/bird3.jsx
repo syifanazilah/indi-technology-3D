@@ -1,5 +1,5 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
-import burung from "../../../assets/3D/burung/burung3.glb";
+import burung from "/burung/burung3.glb";
 import adjusctScale from "../../../constant/adjustScale";
 import { useEffect, useRef } from "react";
 
