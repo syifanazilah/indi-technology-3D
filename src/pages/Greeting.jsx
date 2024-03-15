@@ -1,20 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 
-const Greeting = ({progress}) => {
+const Greeting = ({ progress }) => {
   const buttonRef = useRef();
   const [open, setOpen] = useState(true);
   const [disable, setDisable] = useState(true);
 
-  setTimeout(() => {
-    setDisable(false);
-  }, 1000);
-  
+  useEffect(() => {
+    if (progress >= 100) {
+      setDisable(false);
+    }
+  }, [progress]);
+
   const handleClick = () => {
     setOpen(false);
   };
-  
+
   const floor = Math.floor(progress);
-  
+
   return (
     <>
       {open && (
@@ -44,10 +46,11 @@ const Greeting = ({progress}) => {
           <section className="md:ml-24 lg:ml-18 sm:ml-10">
             <button
               ref={buttonRef}
-              className="text-white text-lg font-medium mx-8 my-24 min-w-[300px] bg-blue-700 px-10 py-4 rounded-full lg:text-xl md:text-lg hover:bg-white hover:text-zinc-950 duration-300"
-              onClick={() => handleClick()} disabled={disable}>
+              className={`text-white btn-loading relative text-lg font-medium mx-8 my-24 min-w-[300px] bg-blue-700 px-10 py-4 rounded-full lg:text-xl md:text-lg hover:bg-white hover:text-zinc-950 duration-300 ${disable ? 'opacity-70' : 'opacity-100'}`}
+              onClick={() => handleClick()}
+              disabled={disable}>
               <p type="button">
-                {floor}
+                {disable ? `Loading ${floor}%` : 'Explore our new world!'}
               </p>
             </button>
           </section>
