@@ -14,6 +14,7 @@ import Greeting from "./Greeting";
 import Pohon from "../components/models/pohon";
 import Burung from "../components/models/burung";
 import Loader from "../components/Loader";
+import Burungs from "../components/models/burung";
 extend({ OrbitControls });
 
 const Scene = ({ setCurrentStage, setIsDisplay }) => {
@@ -141,7 +142,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         <RumahAsap />
         <Island />
         <Pohon />
-        <Burung />
+        <Burung/>
       </group>
     </>
   );
@@ -154,7 +155,7 @@ const Home = () => {
 
   return (
     <div className="overflow-y-hidden">
-      <Greeting progress={progress} />
+      {/* <Greeting progress={progress} /> */}
       <div
         style={{ userSelect: "none" }}
         className={`${
