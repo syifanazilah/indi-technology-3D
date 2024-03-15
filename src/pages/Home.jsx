@@ -155,7 +155,7 @@ const Home = () => {
 
   return (
     <div className="overflow-y-hidden">
-      {/* <Greeting progress={progress} /> */}
+      {<Greeting progress={progress} />}
       <div
         style={{ userSelect: "none" }}
         className={`${
