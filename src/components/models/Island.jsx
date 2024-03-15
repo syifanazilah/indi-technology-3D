@@ -24,8 +24,6 @@ const Island = ({ ...props }) => {
 
   return (
     <group ref={ref} receiveShadow {...props}>
-      <Pohon />
-      <Burung />
       <primitive
         object={gltf.scene}
         key={gltf}

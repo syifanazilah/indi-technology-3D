@@ -1,4 +1,4 @@
-import { OrbitControls, PerspectiveCamera, useHelper } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera, useHelper, useProgress } from "@react-three/drei";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
 import Island from "../components/models/Island";
@@ -11,6 +11,9 @@ import { DirectionalLightHelper, MOUSE, SpotLightHelper } from "three";
 import { useControls } from "leva";
 import HomeContent from "../components/HomeContent";
 import Greeting from "./Greeting";
+import Pohon from "../components/models/pohon";
+import Burung from "../components/models/burung";
+import Loader from "../components/Loader";
 extend({ OrbitControls });
 
 const Scene = ({ setCurrentStage, setIsDisplay }) => {
@@ -93,7 +96,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
   const positionY = window.innerWidth < 768 ? -3 : -5;
 
   useHelper(lightRef, DirectionalLightHelper, 1);
-  useHelper(spotLightRef, SpotLightHelper, 'white')
+  useHelper(spotLightRef, SpotLightHelper, "white");
 
   return (
     <>
@@ -108,7 +111,15 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         intensity={3}
         ref={lightRef}
       />
-      <spotLight ref={spotLightRef} castShadow position={[-60, 102, 36  ]} angle={0.28} penumbra={0.23} intensity={15000} color={'white'} />
+      <spotLight
+        ref={spotLightRef}
+        castShadow
+        position={[-60, 102, 36]}
+        angle={0.28}
+        penumbra={0.23}
+        intensity={15000}
+        color={"white"}
+      />
       <OrbitControls
         enableRotate={true}
         enablePan={false}
@@ -129,18 +140,21 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         <Rumah />
         <RumahAsap />
         <Island />
+        <Pohon />
+        <Burung />
       </group>
     </>
   );
 };
 
 const Home = () => {
+  const { progress } = useProgress();
   const [currentStage, setCurrentStage] = useState(null);
   const [isDisplay, setIsDisplay] = useState(false);
 
   return (
     <div className="overflow-y-hidden">
-      {/* <Greeting /> */}
+      <Greeting progress={progress} />
       <div
         style={{ userSelect: "none" }}
         className={`${
@@ -151,8 +165,8 @@ const Home = () => {
       <Canvas
         className="w-full min-h-screen"
         camera={{ manual: true }}
-        shadows={'soft'}>
-        <Suspense>
+        shadows={"soft"}>
+        <Suspense fallback={<Loader progress={progress}/>}>
           <Scene
             setCurrentStage={setCurrentStage}
             setIsDisplay={setIsDisplay}
