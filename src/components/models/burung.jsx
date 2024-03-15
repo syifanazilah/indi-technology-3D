@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import adjusctScale from "../../constant/adjustScale";
 import Bird1 from "./burung/bird1";
 import Bird2 from "./burung/bird2";
 import Bird3 from "./burung/bird3";
@@ -11,11 +10,13 @@ const Burung = () => {
   const burungRef = useRef();
 
   useFrame((state, delta, _) => {
-    burungRef.current.position.y = Math.sin(state.clock.elapsedTime) * 3;
-  })
+    window.innerWidth < 768
+      ? ""
+      : (burungRef.current.position.y = Math.sin(state.clock.elapsedTime) * 3);
+  });
 
   return (
-    <group scale={adjusctScale()} ref={burungRef}>
+    <group ref={burungRef}>
       <Bird1 position={[-2, 0, 0]} />
       <Bird2 position={[1, 0, 0]} />
       <Bird3 position={[2, 2, -3]} />
