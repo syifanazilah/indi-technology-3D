@@ -1,4 +1,10 @@
-import { OrbitControls, PerspectiveCamera, useHelper, useProgress } from "@react-three/drei";
+import {
+  OrbitControls,
+  PerspectiveCamera,
+  Plane,
+  useHelper,
+  useProgress,
+} from "@react-three/drei";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
 import Island from "../components/models/Island";
@@ -15,6 +21,7 @@ import Pohon from "../components/models/pohon";
 import Burung from "../components/models/burung";
 import Loader from "../components/Loader";
 import Burungs from "../components/models/burung";
+import Pesawat from "../components/models/Plane";
 extend({ OrbitControls });
 
 const Scene = ({ setCurrentStage, setIsDisplay }) => {
@@ -22,37 +29,26 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
   const objectRef = useRef();
   const lightRef = useRef();
   const spotLightRef = useRef();
+  const pesawatRef = useRef();
+  const [isRotating, setIsRotating] = useState(false);
 
-  // const { x, y, z, angle, penumbra, intensity } = useControls({
-  //   x: {
-  //     value: -60,
-  //     min: -300,
-  //     max: 300,
-  //   },
-  //   y: {
-  //     value: 102,
-  //     min: -300,
-  //     max: 300,
-  //   },
-  //   z: {
-  //     value: 36,
-  //     min: -300,
-  //     max: 300,
-  //   },
-  //   angle: {
-  //     value: 0.5,
-  //     min: 0,
-  //     max: 1,
-  //   },
-  //   penumbra: {
-  //     value: 0.1,
-  //     min: 0,
-  //     max: 1,
-  //   },
-  //   intensity: 15000,
-  // });
+  const { radius, waktu } = useControls({
+    radius: {
+      value: 25,
+      min: 0,
+      max: 50,
+      step: 0.1,
+    },
+    waktu: {
+      value: 0.4,
+      min: 0,
+      max: 1,
+      step: 0.1,
+    },
+  });
 
-  useFrame((state, delta, frame) => {
+  // cek posisi
+  useFrame(() => {
     const { x, z } = cameraRef.current.position;
 
     const posisiRumah = x >= -25 && x <= 10 && z >= -45 && z <= -30;
@@ -86,18 +82,28 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
     }
   });
 
-  let screenScale;
+  //orbit pesawat (klo dipake)
+  // useFrame((state) => {
+  //   const pesawat = pesawatRef.current;
 
-  if (window.innerWidth < 768) {
-    screenScale = -3;
-  } else {
-    screenScale = -5;
-  }
+  //   // Mengatur rotasi pesawat agar menghadap ke pusat orbit
+  //   const angle = Math.atan2(pesawat.position.x, pesawat.position.z);
+  //   pesawat.rotation.y = angle - Math.PI / 2;
+
+  //   pesawat.position.x = Math.sin(state.clock.elapsedTime * waktu) * radius;
+  //   pesawat.position.z = Math.cos(state.clock.elapsedTime * waktu) * radius;
+  // })
+
+  //mendeteksi apakah user sedang rotate
+  const handleStart = () => {
+    setIsRotating(true);
+  };
+
+  const handleEnd = () => {
+    setIsRotating(false);
+  };
 
   const positionY = window.innerWidth < 768 ? -3 : -5;
-
-  useHelper(lightRef, DirectionalLightHelper, 1);
-  useHelper(spotLightRef, SpotLightHelper, "white");
 
   return (
     <>
@@ -129,12 +135,16 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         maxDistance={45}
         minDistance={40}
         dampingFactor={0.03}
+        onStart={handleStart}
+        onEnd={handleEnd}
       />
       {/* object 3D */}
       <group
         ref={objectRef}
         position={[0, positionY, 0]}
         rotation={[0, 3.03, 0]}>
+        <Pesawat isRotating={isRotating} parentRef={pesawatRef} />
+
         <Rocket />
         <Tangan />
         <Puzzle />
@@ -142,7 +152,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         <RumahAsap />
         <Island />
         <Pohon />
-        <Burung/>
+        <Burung />
       </group>
     </>
   );
@@ -155,7 +165,7 @@ const Home = () => {
 
   return (
     <div className="overflow-y-hidden">
-      {<Greeting progress={progress} />}
+      {/* {<Greeting progress={progress} />} */}
       <div
         style={{ userSelect: "none" }}
         className={`${
@@ -167,7 +177,7 @@ const Home = () => {
         className="w-full min-h-screen"
         camera={{ manual: true }}
         shadows={"soft"}>
-        <Suspense fallback={<Loader progress={progress}/>}>
+        <Suspense fallback={<Loader progress={progress} />}>
           <Scene
             setCurrentStage={setCurrentStage}
             setIsDisplay={setIsDisplay}
