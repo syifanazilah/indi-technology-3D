@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import maskot from "../../assets/3D/maskot.glb";
 import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
+import adjusctScale from "../../constant/adjustScale";
 
 const Maskot = ({ isRotating, parentRef }) => {
   const gltf = useGLTF(maskot);
@@ -31,19 +32,19 @@ const Maskot = ({ isRotating, parentRef }) => {
   const prevMouseX = useRef(null);
   const prevTouchX = useRef(null);
 
+  //kecepatan animasi
+  const kecepatan = window.innerWidth < 768 ? 2 : 1.7;
   useFrame(() => {
-    actions[names[0]].timeScale = timeScaleRef.current * 1.7;
-    // console.log(timeScaleRef.current);
+    actions[names[0]].timeScale = timeScaleRef.current * kecepatan;
   });
 
   window.onmousemove = (event) => {
     const mouseX = event.clientX;
-    console.log(event);
 
     // Deteksi arah gerakan mouse (kiri atau kanan)
     if (prevMouseX.current !== null && mouseX !== prevMouseX.current) {
       const direction = mouseX > prevMouseX.current ? "right" : "left";
-      timeScaleRef.current = direction === "left" ? 1 : -1; // Menyimpan nilai timeScale ke dalam ref
+      timeScaleRef.current = direction === "left" ? 1 : -1;
     }
 
     prevMouseX.current = mouseX;
@@ -56,22 +57,18 @@ const Maskot = ({ isRotating, parentRef }) => {
   window.ontouchmove = (event) => {
     const touchX = getTouchX(event);
 
-    // Deteksi arah gerakan sentuhan (kiri atau kanan)
+    // Deteksi arah gerakan sentuhan
     if (prevTouchX.current !== null && touchX !== prevTouchX.current) {
       const direction = touchX > prevTouchX.current ? "right" : "left";
-      timeScaleRef.current = direction === "left" ? 1 : -1; // Menyimpan nilai timeScale ke dalam ref
+      timeScaleRef.current = direction === "left" ? 1 : -1;
     }
 
     prevTouchX.current = touchX;
   };
 
-  const { position, scale, rotation } = useControls({
+  const { position, rotation } = useControls({
     position: {
-      value: [0, 3, 0],
-      step: 0.1,
-    },
-    scale: {
-      value: 1,
+      value: [0, .7, 0],
       step: 0.1,
     },
     rotation: {
@@ -80,13 +77,14 @@ const Maskot = ({ isRotating, parentRef }) => {
     },
   });
 
+
   return (
     <group ref={parentRef} lookAt={[0, 0, 0]}>
       <group
         ref={ref}
         position={position}
         lookAt={[0, 0, 0]}
-        scale={scale}
+        scale={adjusctScale()}
         rotation={rotation}>
         <primitive object={gltf.scene} key={gltf} />
       </group>

@@ -135,7 +135,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         maxDistance={45}
         minDistance={40}
         dampingFactor={0.03}
-        rotateSpeed={0.2}
+        rotateSpeed={window.innerWidth < 768 ? .5 : .2}
         onStart={handleStart}
         onEnd={handleEnd}
       />
