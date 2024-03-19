@@ -13,7 +13,7 @@ import Puzzle from "../components/models/puzzle";
 import Tangan from "../components/models/tangan";
 import RumahAsap from "../components/models/rumahasap";
 import Rocket from "../components/models/rocket";
-import { DirectionalLightHelper, MOUSE, SpotLightHelper } from "three";
+import { DirectionalLightHelper, MOUSE, SpotLightHelper, Vector3 } from "three";
 import { useControls } from "leva";
 import HomeContent from "../components/HomeContent";
 import Greeting from "./Greeting";

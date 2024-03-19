@@ -17,7 +17,7 @@ const Maskot = ({ isRotating, parentRef }) => {
       }
     });
   }, []);
-  
+
   useEffect(() => {
     actions[names[0]].fadeIn().play();
     if (isRotating) {
@@ -29,23 +29,40 @@ const Maskot = ({ isRotating, parentRef }) => {
 
   const timeScaleRef = useRef(1);
   const prevMouseX = useRef(null);
+  const prevTouchX = useRef(null);
 
   useFrame(() => {
     actions[names[0]].timeScale = timeScaleRef.current * 1.7;
-      console.log(timeScaleRef.current);
-  })
+    // console.log(timeScaleRef.current);
+  });
 
-  
   window.onmousemove = (event) => {
     const mouseX = event.clientX;
-  
+    console.log(event);
+
     // Deteksi arah gerakan mouse (kiri atau kanan)
     if (prevMouseX.current !== null && mouseX !== prevMouseX.current) {
       const direction = mouseX > prevMouseX.current ? "right" : "left";
       timeScaleRef.current = direction === "left" ? 1 : -1; // Menyimpan nilai timeScale ke dalam ref
     }
-  
+
     prevMouseX.current = mouseX;
+  };
+
+  function getTouchX(event) {
+    return event.touches ? event.touches[0].clientX : event.clientX;
+  }
+
+  window.ontouchmove = (event) => {
+    const touchX = getTouchX(event);
+
+    // Deteksi arah gerakan sentuhan (kiri atau kanan)
+    if (prevTouchX.current !== null && touchX !== prevTouchX.current) {
+      const direction = touchX > prevTouchX.current ? "right" : "left";
+      timeScaleRef.current = direction === "left" ? 1 : -1; // Menyimpan nilai timeScale ke dalam ref
+    }
+
+    prevTouchX.current = touchX;
   };
 
   const { position, scale, rotation } = useControls({
