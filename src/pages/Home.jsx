@@ -21,7 +21,7 @@ import Pohon from "../components/models/pohon";
 import Burung from "../components/models/burung";
 import Loader from "../components/Loader";
 import Burungs from "../components/models/burung";
-import Pesawat from "../components/models/Plane";
+import Maskot from "../components/models/Plane";
 extend({ OrbitControls });
 
 const Scene = ({ setCurrentStage, setIsDisplay }) => {
@@ -29,7 +29,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
   const objectRef = useRef();
   const lightRef = useRef();
   const spotLightRef = useRef();
-  const pesawatRef = useRef();
+  const MaskotRef = useRef();
   const [isRotating, setIsRotating] = useState(false);
 
   const { radius, waktu } = useControls({
@@ -94,6 +94,8 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
   //   pesawat.position.z = Math.cos(state.clock.elapsedTime * waktu) * radius;
   // })
 
+  const positionY = window.innerWidth < 768 ? -3 : -5;
+
   //mendeteksi apakah user sedang rotate
   const handleStart = () => {
     setIsRotating(true);
@@ -102,8 +104,6 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
   const handleEnd = () => {
     setIsRotating(false);
   };
-
-  const positionY = window.innerWidth < 768 ? -3 : -5;
 
   return (
     <>
@@ -135,6 +135,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         maxDistance={45}
         minDistance={40}
         dampingFactor={0.03}
+        rotateSpeed={0.2}
         onStart={handleStart}
         onEnd={handleEnd}
       />
@@ -143,7 +144,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         ref={objectRef}
         position={[0, positionY, 0]}
         rotation={[0, 3.03, 0]}>
-        <Pesawat isRotating={isRotating} parentRef={pesawatRef} />
+        <Maskot isRotating={isRotating} parentRef={MaskotRef} />
 
         <Rocket />
         <Tangan />
@@ -157,6 +158,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
     </>
   );
 };
+
 
 const Home = () => {
   const { progress } = useProgress();
@@ -176,7 +178,8 @@ const Home = () => {
       <Canvas
         className="w-full min-h-screen"
         camera={{ manual: true }}
-        shadows={"soft"}>
+        shadows={"soft"}
+        >
         <Suspense fallback={<Loader progress={progress} />}>
           <Scene
             setCurrentStage={setCurrentStage}
