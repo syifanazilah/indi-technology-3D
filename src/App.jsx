@@ -16,7 +16,7 @@ function App() {
     <>
       <Navbar isHome={isHome} />
 
-      <main className={`${isHome ? "" : "pt-20 container overflow-x-hidden relative"}`}>
+      <main className={`${isHome ? "" : "pt-20 overflow-x-hidden relative"}`}>
         <Outlet />
       </main>
 
