@@ -50,9 +50,9 @@ const Maskot = ({ isRotating, parentRef }) => {
     prevMouseX.current = mouseX;
   };
 
-  function getTouchX(event) {
+  const getTouchX = (event) => {
     return event.touches ? event.touches[0].clientX : event.clientX;
-  }
+  };
 
   window.ontouchmove = (event) => {
     const touchX = getTouchX(event);
@@ -68,7 +68,7 @@ const Maskot = ({ isRotating, parentRef }) => {
 
   const { position, rotation } = useControls({
     position: {
-      value: [0, .7, 0],
+      value: [0, 0.7, 0],
       step: 0.1,
     },
     rotation: {
@@ -77,7 +77,6 @@ const Maskot = ({ isRotating, parentRef }) => {
     },
   });
 
-
   return (
     <group ref={parentRef} lookAt={[0, 0, 0]}>
       <group
@@ -85,7 +84,8 @@ const Maskot = ({ isRotating, parentRef }) => {
         position={position}
         lookAt={[0, 0, 0]}
         scale={adjusctScale()}
-        rotation={rotation}>
+        rotation={rotation}
+      >
         <primitive object={gltf.scene} key={gltf} />
       </group>
     </group>

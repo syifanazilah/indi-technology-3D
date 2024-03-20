@@ -56,7 +56,8 @@ const About = () => {
 
           <p className="lg:mr-60 md:mr-28 mt-3 mb-20 text-base font-normal lg:text-lg md:text-base">
             ➤ Technology solutions <br />
-            ➤ Innovation Development <br />➤ Talent Development
+            ➤ Innovation Development <br />
+            ➤ Talent Development
           </p>
         </div>
       </section>

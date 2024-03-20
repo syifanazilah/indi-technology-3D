@@ -1,26 +1,21 @@
 import {
   OrbitControls,
   PerspectiveCamera,
-  Plane,
-  useHelper,
   useProgress,
 } from "@react-three/drei";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import Island from "../components/models/Island";
 import Rumah from "../components/models/home";
 import Puzzle from "../components/models/puzzle";
 import Tangan from "../components/models/tangan";
 import RumahAsap from "../components/models/rumahasap";
 import Rocket from "../components/models/rocket";
-import { DirectionalLightHelper, MOUSE, SpotLightHelper, Vector3 } from "three";
 import { useControls } from "leva";
 import HomeContent from "../components/HomeContent";
 import Greeting from "./Greeting";
 import Pohon from "../components/models/pohon";
-import Burung from "../components/models/burung";
 import Loader from "../components/Loader";
-import Burungs from "../components/models/burung";
 import Maskot from "../components/models/Plane";
 extend({ OrbitControls });
 
@@ -111,7 +106,6 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
       {/* lightning */}
       <ambientLight intensity={1} />
       <directionalLight
-        // castShadow
         scale={3}
         position={[10, 20, 100]}
         // position={[x, y, z]}
@@ -167,7 +161,7 @@ const Home = () => {
 
   return (
     <div className="overflow-y-hidden">
-      {/* {<Greeting progress={progress} />} */}
+      {<Greeting progress={progress} />}
       <div
         style={{ userSelect: "none" }}
         className={`${
