@@ -66,25 +66,13 @@ const Maskot = ({ isRotating, parentRef }) => {
     prevTouchX.current = touchX;
   };
 
-  const { position, rotation } = useControls({
-    position: {
-      value: [0, 0.7, 0],
-      step: 0.1,
-    },
-    rotation: {
-      value: [0, 0, 0],
-      step: 0.1,
-    },
-  });
-
   return (
     <group ref={parentRef} lookAt={[0, 0, 0]}>
       <group
         ref={ref}
-        position={position}
+        position={[0, .7, 0]}
         lookAt={[0, 0, 0]}
         scale={adjusctScale()}
-        rotation={rotation}
       >
         <primitive object={gltf.scene} key={gltf} />
       </group>

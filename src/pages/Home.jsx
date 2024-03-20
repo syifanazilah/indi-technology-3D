@@ -16,7 +16,8 @@ import HomeContent from "../components/HomeContent";
 import Greeting from "./Greeting";
 import Pohon from "../components/models/pohon";
 import Loader from "../components/Loader";
-import Maskot from "../components/models/Plane";
+import Maskot from "../components/models/Maskot";
+import Burung from "../components/models/burung";
 extend({ OrbitControls });
 
 const Scene = ({ setCurrentStage, setIsDisplay }) => {
@@ -26,21 +27,6 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
   const spotLightRef = useRef();
   const MaskotRef = useRef();
   const [isRotating, setIsRotating] = useState(false);
-
-  const { radius, waktu } = useControls({
-    radius: {
-      value: 25,
-      min: 0,
-      max: 50,
-      step: 0.1,
-    },
-    waktu: {
-      value: 0.4,
-      min: 0,
-      max: 1,
-      step: 0.1,
-    },
-  });
 
   // cek posisi
   useFrame(() => {
