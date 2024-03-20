@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ isHome = false }) => {
   const navRef = useRef(null);
+  const navParentRef = useRef();
   const [isActive, setIsActive] = useState(false);
+  
 
   const toggleButton = useCallback(() => {
     setIsActive((isActive) => !isActive);
@@ -17,8 +19,18 @@ const Navbar = ({ isHome = false }) => {
     { name: "Contact", url: "/contact" },
   ];
 
+  window.onscroll = () => {
+    if (window.scrollY > 0) {
+      navParentRef.current.classList.add("bg-black/20");
+      navParentRef.current.classList.add("backdrop-blur-lg");
+    } else {
+      navParentRef.current.classList.remove("bg-black/20");
+      navParentRef.current.classList.remove("backdrop-blur-lg");
+    }
+  }
+
   return (
-    <div className="fixed top-0 left-0 w-full py-4 z-20">
+    <div className="fixed top-0 left-0 w-full py-4 z-20" ref={navParentRef}>
       <div className="container">
         <div className="flex justify-between items-center">
           {isHome ? (
