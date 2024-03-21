@@ -237,3 +237,35 @@ body {
 .solar #solarIcon {
   display: block;
 }
+
+/* absolute w-full h-[60%] bottom-0 left-0 bg-[#E1E7F5]/[.3] transform translate-y-36 flex items-center space-y-9 flex-col rounded-b-lg */
+
+.kontener .boxcard {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.boxcard {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.boxcard .layercard {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background-color: #e1e7f54d;
+  display: flex;
+  gap: 45px;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: .5s ease;
+}
+
+.boxcard:hover .layercard {
+  transform: translateY(0);
+}
