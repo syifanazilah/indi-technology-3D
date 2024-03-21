@@ -269,3 +269,11 @@ body {
 .boxcard:hover .layercard {
   transform: translateY(0);
 }
+
+.boxcard img {
+  transition: .5s ease;
+}
+
+.boxcard:hover img {
+  transform: scale(1.1);
+}
