@@ -79,7 +79,12 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
 
   //mendeteksi apakah user sedang rotate
   const handleStart = () => {
-    setIsRotating(true);
+    window.onmousemove = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      
+      setIsRotating(true);
+    };
   };
 
   const handleEnd = () => {
@@ -115,7 +120,7 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         maxDistance={45}
         minDistance={40}
         dampingFactor={0.03}
-        rotateSpeed={window.innerWidth < 768 ? .5 : .2}
+        rotateSpeed={window.innerWidth < 768 ? 0.5 : 0.2}
         onStart={handleStart}
         onEnd={handleEnd}
       />
@@ -139,7 +144,6 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
   );
 };
 
-
 const Home = () => {
   const { progress } = useProgress();
   const [currentStage, setCurrentStage] = useState(null);
@@ -158,8 +162,7 @@ const Home = () => {
       <Canvas
         className="w-full min-h-screen"
         camera={{ manual: true }}
-        shadows={"soft"}
-        >
+        shadows={"soft"}>
         <Suspense fallback={<Loader progress={progress} />}>
           <Scene
             setCurrentStage={setCurrentStage}
