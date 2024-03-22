@@ -20,10 +20,10 @@ const Portfolio = () => {
 
         <div className="bg-blue-500 p-3 rounded-lg kontener">
           <div className="boxcard">
-            <img src={portfolio} className="rounded-lg"/>
+            <img src="/assets/icons/Debat-Capres-Cawapres-RI-2019-1.jpg" className="rounded-lg"/>
             <div className="layercard">
               <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
-              <h4 className="font-medium text-xl">Website project 1</h4>
+              <h4 className="font-medium text-xl">Debat Pilpres 2019 Inf. System</h4>
             </div>
           </div>
           <Link to={'/portfoliodetail1'}><FontAwesomeIcon icon={faPlay} className="mt-4 pl-4 text-2xl cursor-pointer"/></Link>
@@ -31,10 +31,10 @@ const Portfolio = () => {
 
         <div className="bg-blue-500 p-3 rounded-lg kontener">
           <div className="boxcard">
-            <img src={portfolio} className="rounded-lg"/>
+            <img src="/assets/icons/Amalia-Cosmetic-1.jpg" className="rounded-lg"/>
             <div className="layercard">
               <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
-              <h4 className="font-medium text-xl">Website project 2</h4>
+              <h4 className="font-medium text-xl">Amalia Cosmetics Ecommerce</h4>
             </div>
           </div>
           <Link to={'/portfoliodetail2'}><FontAwesomeIcon icon={faPlay} className="mt-4 pl-4 text-2xl cursor-pointer"/></Link>
@@ -42,10 +42,10 @@ const Portfolio = () => {
 
         <div className="bg-blue-500 p-3 rounded-lg kontener">
           <div className="boxcard">
-            <img src={portfolio} className="rounded-lg"/>
+            <img src="/assets/icons/AhwalNote-1.jpg" className="rounded-lg"/>
             <div className="layercard">
               <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
-              <h4 className="font-medium text-xl">Website project 3</h4>
+              <h4 className="font-medium text-xl">AhwalNote App</h4>
             </div>
           </div>
           <Link to={'/portfoliodetail3'}><FontAwesomeIcon icon={faPlay} className="mt-4 pl-4 text-2xl cursor-pointer"/></Link>
@@ -53,10 +53,10 @@ const Portfolio = () => {
 
         <div className="bg-blue-500 p-3 rounded-lg kontener">
           <div className="boxcard">
-            <img src={portfolio} className="rounded-lg"/>
+            <img src="/assets/icons/Denny-AK-1.jpg" className="rounded-lg"/>
             <div className="layercard">
               <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
-              <h4 className="font-medium text-xl">Website project 4</h4>
+              <h4 className="font-medium text-xl">Denny AK Attorney</h4>
             </div>
           </div>
           <Link to={'/portfoliodetail4'}><FontAwesomeIcon icon={faPlay} className="mt-4 pl-4 text-2xl cursor-pointer"/></Link>
