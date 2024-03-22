@@ -15,21 +15,12 @@ export const PortfolioDetail1 = () => {
         </h1>
       </div>
 
-      <div className="h-56 sm:h-64 xl:h-[25rem] 2xl:h-96 mt-10 w-[50rem]">
-        <Carousel slideInterval={1500}>
-          <img
-            src={portfolio}
-            alt="..."
-          />
-          <img
-            src={portfolio2}
-            alt="..."
-          />
-          <img
-            src={portfolio3}
-            alt="..."
-          />
-        </Carousel>
+      <div className="mt-12">
+        <img
+          src={portfolio}
+          alt="..."
+          className=""
+        />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -61,6 +52,7 @@ Indi Technology dipercaya oleh KPU RI untuk membangun Sistem Registrasi dalam pe
   );
 };
 
+
 export const PortfolioDetail2 = () => {
   return (
     <section className="mx-10 flex flex-col items-center">
@@ -70,21 +62,12 @@ export const PortfolioDetail2 = () => {
         </h1>
       </div>
 
-      <div className="h-56 sm:h-64 xl:h-[25rem] 2xl:h-96 mt-10 w-[50rem]">
-        <Carousel slideInterval={1500}>
-          <img
-            src={portfolio}
-            alt="..."
-          />
-          <img
-            src={portfolio2}
-            alt="..."
-          />
-          <img
-            src={portfolio3}
-            alt="..."
-          />
-        </Carousel>
+      <div className="mt-12">
+        <img
+          src={portfolio}
+          alt="..."
+          className=""
+        />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -122,6 +105,7 @@ export const PortfolioDetail2 = () => {
   );
 };
 
+
 export const PortfolioDetail3 = () => {
   return (
     <section className="mx-10 flex flex-col items-center">
@@ -131,21 +115,12 @@ export const PortfolioDetail3 = () => {
         </h1>
       </div>
 
-      <div className="h-56 sm:h-64 xl:h-[25rem] 2xl:h-96 mt-10 w-[50rem]">
-        <Carousel slideInterval={1500}>
-          <img
-            src={portfolio}
-            alt="..."
-          />
-          <img
-            src={portfolio2}
-            alt="..."
-          />
-          <img
-            src={portfolio3}
-            alt="..."
-          />
-        </Carousel>
+      <div className="mt-12">
+        <img
+          src={portfolio}
+          alt="..."
+          className=""
+        />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -193,6 +168,7 @@ export const PortfolioDetail3 = () => {
   );
 };
 
+
 export const PortfolioDetail4 = () => {
   return (
     <section className="mx-10 flex flex-col items-center">
@@ -202,21 +178,12 @@ export const PortfolioDetail4 = () => {
         </h1>
       </div>
 
-      <div className="h-56 sm:h-64 xl:h-[25rem] 2xl:h-96 mt-10 w-[50rem]">
-        <Carousel slideInterval={1500}>
-          <img
-            src={portfolio}
-            alt="..."
-          />
-          <img
-            src={portfolio2}
-            alt="..."
-          />
-          <img
-            src={portfolio3}
-            alt="..."
-          />
-        </Carousel>
+      <div className="mt-12">
+        <img
+          src={portfolio}
+          alt="..."
+          className=""
+        />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -236,6 +203,190 @@ export const PortfolioDetail4 = () => {
 
           <div className="w-[32rem]">
               <p className="text-lg ">DAK attorney is an Indonesia lawyer firm headquartered in  Jakarta, that serve legal and law advocation. DAK attorney is focus on helping small communities who are entangled with undue legal cases. Founded in 2009 by Denny Andrian K in South Jakarta. Denny AK Attorney service legal consultans have worked with many of law cases. We have professional, honest and hardworking career. We believe that everyone deserves simple and affordable access to legal services and helps you identify the little and big ways the law can make your life better.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="pl-12 mb-10 text-start w-full">
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+      </div>
+    </section>
+  );
+};
+
+
+export const PortfolioDetail5 = () => {
+  return (
+    <section className="mx-10 flex flex-col items-center">
+      <div className="text-center">
+        <h1 className="text-white font-medium text-3xl">
+          Website project 5
+        </h1>
+      </div>
+
+      <div className="mt-12">
+        <img
+          src={portfolio}
+          alt="..."
+          className=""
+        />
+      </div>
+
+      <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
+        <div className="text-start w-[7.9rem]">
+          <h1 className="text-white font-medium text-2xl">Description</h1>
+          <div className="flex space-x-1 mt-2">
+            <div className="bg-blue-500 w-[3rem] py-[0.10rem] rounded-lg"></div>
+            <div className="bg-blue-500 w-full py-[0.10rem] rounded-lg"></div>
+          </div>
+        </div>
+
+        <div className="flex space-x-5">
+          <div className="flex flex-col items-center justify-between w-[2px] h-auto bg-blue-500">
+            <div className="bg-blue-500 p-1 rounded-lg"></div>
+            <div className="bg-blue-500 p-1 rounded-lg"></div>
+          </div>
+
+          <div className="w-[32rem]">
+              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="pl-12 mb-10 text-start w-full">
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+      </div>
+    </section>
+  );
+};
+
+
+export const PortfolioDetail6 = () => {
+  return (
+    <section className="mx-10 flex flex-col items-center">
+      <div className="text-center">
+        <h1 className="text-white font-medium text-3xl">
+          Website project 6
+        </h1>
+      </div>
+
+      <div className="mt-12">
+        <img
+          src={portfolio}
+          alt="..."
+          className=""
+        />
+      </div>
+
+      <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
+        <div className="text-start w-[7.9rem]">
+          <h1 className="text-white font-medium text-2xl">Description</h1>
+          <div className="flex space-x-1 mt-2">
+            <div className="bg-blue-500 w-[3rem] py-[0.10rem] rounded-lg"></div>
+            <div className="bg-blue-500 w-full py-[0.10rem] rounded-lg"></div>
+          </div>
+        </div>
+
+        <div className="flex space-x-5">
+          <div className="flex flex-col items-center justify-between w-[2px] h-auto bg-blue-500">
+            <div className="bg-blue-500 p-1 rounded-lg"></div>
+            <div className="bg-blue-500 p-1 rounded-lg"></div>
+          </div>
+
+          <div className="w-[32rem]">
+              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="pl-12 mb-10 text-start w-full">
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+      </div>
+    </section>
+  );
+};
+
+
+export const PortfolioDetail7 = () => {
+  return (
+    <section className="mx-10 flex flex-col items-center">
+      <div className="text-center">
+        <h1 className="text-white font-medium text-3xl">
+          Website project 7
+        </h1>
+      </div>
+
+      <div className="mt-12">
+        <img
+          src={portfolio}
+          alt="..."
+          className=""
+        />
+      </div>
+
+      <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
+        <div className="text-start w-[7.9rem]">
+          <h1 className="text-white font-medium text-2xl">Description</h1>
+          <div className="flex space-x-1 mt-2">
+            <div className="bg-blue-500 w-[3rem] py-[0.10rem] rounded-lg"></div>
+            <div className="bg-blue-500 w-full py-[0.10rem] rounded-lg"></div>
+          </div>
+        </div>
+
+        <div className="flex space-x-5">
+          <div className="flex flex-col items-center justify-between w-[2px] h-auto bg-blue-500">
+            <div className="bg-blue-500 p-1 rounded-lg"></div>
+            <div className="bg-blue-500 p-1 rounded-lg"></div>
+          </div>
+
+          <div className="w-[32rem]">
+              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="pl-12 mb-10 text-start w-full">
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+      </div>
+    </section>
+  );
+};
+
+
+export const PortfolioDetail8 = () => {
+  return (
+    <section className="mx-10 flex flex-col items-center">
+      <div className="text-center">
+        <h1 className="text-white font-medium text-3xl">
+          Website project 8
+        </h1>
+      </div>
+
+      <div className="mt-12">
+        <img
+          src={portfolio}
+          alt="..."
+          className=""
+        />
+      </div>
+
+      <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
+        <div className="text-start w-[7.9rem]">
+          <h1 className="text-white font-medium text-2xl">Description</h1>
+          <div className="flex space-x-1 mt-2">
+            <div className="bg-blue-500 w-[3rem] py-[0.10rem] rounded-lg"></div>
+            <div className="bg-blue-500 w-full py-[0.10rem] rounded-lg"></div>
+          </div>
+        </div>
+
+        <div className="flex space-x-5">
+          <div className="flex flex-col items-center justify-between w-[2px] h-auto bg-blue-500">
+            <div className="bg-blue-500 p-1 rounded-lg"></div>
+            <div className="bg-blue-500 p-1 rounded-lg"></div>
+          </div>
+
+          <div className="w-[32rem]">
+              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
           </div>
         </div>
       </div>
