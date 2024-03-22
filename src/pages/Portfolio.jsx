@@ -4,9 +4,7 @@ import portfolio from "/assets/icons/portfolio.png"
 import { Link } from "react-router-dom";
 
 const Portfolio = () => {
-
   return (
-    //ngoding di dalam section
     <section className="mx-10 flex flex-col justify-center items-center">
       <div className="text-start w-[7.6rem] mb-12">
         <h1 className="text-white font-medium text-3xl">Portfolio</h1>
@@ -20,7 +18,7 @@ const Portfolio = () => {
 
         <div className="bg-blue-500 p-3 rounded-lg kontener">
           <div className="boxcard">
-            <img src={portfolio} className="rounded-lg"/>
+            <img src={portfolio}/>
             <div className="layercard">
               <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
               <h4 className="font-medium text-xl">Website project 1</h4>
@@ -31,7 +29,7 @@ const Portfolio = () => {
 
         <div className="bg-blue-500 p-3 rounded-lg kontener">
           <div className="boxcard">
-            <img src={portfolio} className="rounded-lg"/>
+            <img src={portfolio}/>
             <div className="layercard">
               <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
               <h4 className="font-medium text-xl">Website project 2</h4>
@@ -42,7 +40,7 @@ const Portfolio = () => {
 
         <div className="bg-blue-500 p-3 rounded-lg kontener">
           <div className="boxcard">
-            <img src={portfolio} className="rounded-lg"/>
+            <img src={portfolio}/>
             <div className="layercard">
               <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
               <h4 className="font-medium text-xl">Website project 3</h4>
@@ -53,13 +51,61 @@ const Portfolio = () => {
 
         <div className="bg-blue-500 p-3 rounded-lg kontener">
           <div className="boxcard">
-            <img src={portfolio} className="rounded-lg"/>
+            <img src={portfolio}/>
             <div className="layercard">
               <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
               <h4 className="font-medium text-xl">Website project 4</h4>
             </div>
           </div>
           <Link to={'/portfoliodetail4'}><FontAwesomeIcon icon={faPlay} className="mt-4 pl-4 text-2xl cursor-pointer"/></Link>
+        </div>
+
+
+        <div className="bg-blue-500 p-3 rounded-lg kontener">
+          <div className="boxcard">
+            <img src={portfolio}/>
+            <div className="layercard">
+              <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
+              <h4 className="font-medium text-xl">Website project 5</h4>
+            </div>
+          </div>
+          <Link to={'/portfoliodetail5'}><FontAwesomeIcon icon={faPlay} className="mt-4 pl-4 text-2xl cursor-pointer"/></Link>
+        </div>
+
+
+        <div className="bg-blue-500 p-3 rounded-lg kontener">
+          <div className="boxcard">
+            <img src={portfolio}/>
+            <div className="layercard">
+              <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
+              <h4 className="font-medium text-xl">Website project 6</h4>
+            </div>
+          </div>
+          <Link to={'/portfoliodetail6'}><FontAwesomeIcon icon={faPlay} className="mt-4 pl-4 text-2xl cursor-pointer"/></Link>
+        </div>
+
+
+        <div className="bg-blue-500 p-3 rounded-lg kontener">
+          <div className="boxcard">
+            <img src={portfolio}/>
+            <div className="layercard">
+              <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
+              <h4 className="font-medium text-xl">Website project 7</h4>
+            </div>
+          </div>
+          <Link to={'/portfoliodetail7'}><FontAwesomeIcon icon={faPlay} className="mt-4 pl-4 text-2xl cursor-pointer"/></Link>
+        </div>
+
+
+        <div className="bg-blue-500 p-3 rounded-lg kontener">
+          <div className="boxcard">
+            <img src={portfolio}/>
+            <div className="layercard">
+              <div className="mt-2 w-[3.5rem] py-[0.170rem] rounded-md bg-white"></div>
+              <h4 className="font-medium text-xl">Website project 8</h4>
+            </div>
+          </div>
+          <Link to={'/portfoliodetail8'}><FontAwesomeIcon icon={faPlay} className="mt-4 pl-4 text-2xl cursor-pointer"/></Link>
         </div>
       </div>
     </section>

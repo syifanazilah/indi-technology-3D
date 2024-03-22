@@ -5,7 +5,7 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import TestShadow from "./pages/tes";
-import { PortfolioDetail1, PortfolioDetail2, PortfolioDetail3, PortfolioDetail4 } from "./pages/PortfolioDetail";
+import { PortfolioDetail1, PortfolioDetail2, PortfolioDetail3, PortfolioDetail4, PortfolioDetail5, PortfolioDetail6, PortfolioDetail7, PortfolioDetail8 } from "./pages/PortfolioDetail";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +43,22 @@ const router = createBrowserRouter([
       {
         path: "/portfoliodetail4",
         element: <PortfolioDetail4/>,
+      },
+      {
+        path: "/portfoliodetail5",
+        element: <PortfolioDetail5/>,
+      },
+      {
+        path: "/portfoliodetail6",
+        element: <PortfolioDetail6/>,
+      },
+      {
+        path: "/portfoliodetail7",
+        element: <PortfolioDetail7/>,
+      },
+      {
+        path: "/portfoliodetail8",
+        element: <PortfolioDetail8/>,
       },
     ],
   },
