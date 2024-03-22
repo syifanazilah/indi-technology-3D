@@ -25,9 +25,7 @@ const Greeting = ({ progress }) => {
             <h1 className="mx-8 text-2xl text-white mb-3 font-semibold lg:text-4xl md:text-3xl sm:text-2xl">
               WELCOME TO
             </h1>
-            <h1 className="mx-8 text-4xl text-blue-500 font-bold lg:text-6xl md:text-5xl sm:text-4xl">
-              INDI TECHNOLOGY
-            </h1>
+            <img src="/assets/icons/logo_inditech_white.png" alt="" style={{ width: '200px',transform: 'translateX(200px) translateY(20px)' }} />
           </section>
 
           <section className="md:mr-24 md:ml-60 lg:mr-18 sm:mx-10">
