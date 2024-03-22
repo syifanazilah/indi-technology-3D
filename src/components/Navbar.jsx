@@ -34,10 +34,10 @@ const Navbar = ({ isHome = false }) => {
       <div className="container">
         <div className="flex justify-between items-center">
           {isHome ? (
-            <img src="/assets/icons/logo_inditech_white.png" alt="" style={{ width: '150px' , transform: 'translateY(15px)'  }} />
+            <img src="/assets/icons/logo_inditech_white.png" alt="" className="w-20" />
           ) : (
             <Link to="/">
-              <img src="/assets/icons/logo_inditech_white.png" alt="" style={{ width: '150px' , transform: 'translateY(15px)'  }} />
+              <img src="/assets/icons/logo_inditech_white.png" alt="" className="w-20" />
             </Link>
           )}
 
