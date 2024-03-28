@@ -235,13 +235,13 @@ const Home = () => {
 
   return (
     <div className="overflow-y-hidden">
-      {/* {<Greeting progress={progress} />} */}
+      {<Greeting progress={progress} />}
 
       <div
         style={{ userSelect: "none" }}
         className={`${
           isDisplay ? "home-content" : "home-content-hidden"
-        } transition container max-w-screen-md absolute top-24 md:top-40 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
+        } transition container max-w-screen-md absolute top-32 md:top-36 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
         <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
       </div>
 

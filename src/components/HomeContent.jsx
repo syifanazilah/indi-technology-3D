@@ -1,4 +1,6 @@
+import { Button } from "flowbite-react";
 import { useEffect, useState } from "react";
+import ButtonLink from "./ui/button";
 
 const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
   if (currentStage === 1) {
@@ -30,13 +32,12 @@ const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
   if (currentStage === 3) {
     // puzzle
     return (
-      <div>
+      <div className="flex flex-col gap-5 md:w-2/3">
         <h1 className="text-center text-lg">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis,
-          laborum porro optio deleniti earum quisquam ducimus nulla quo
-          voluptatem, impedit officiis eius consectetur sed quos! Amet
-          blanditiis saepe iste possimus!
+          We are able to assist our partners to achieve their digital
+          transformation goals with the righteous technology solution their need
         </h1>
+        <ButtonLink to={'/portfolio'} className="bg-white text-black w-full">visit -{">"}</ButtonLink>
       </div>
     );
   }
