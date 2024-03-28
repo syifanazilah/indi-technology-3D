@@ -1,5 +1,5 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import maskot from "../../assets/3D/maskot.glb";
 import adjusctScale from "../../constant/adjustScale";
 import { useFrame } from "@react-three/fiber";

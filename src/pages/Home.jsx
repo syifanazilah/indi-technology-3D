@@ -1,6 +1,7 @@
 import {
   OrbitControls,
   PerspectiveCamera,
+  useHelper,
   useProgress,
 } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
@@ -18,23 +19,53 @@ import Loader from "../components/Loader";
 import Maskot from "../components/models/Maskot";
 import Burung from "../components/models/burung";
 import Awan from "../components/models/awan";
+import useCurrentHour from "../constant/currentHour";
+import { useControls } from "leva";
+import { SpotLightHelper } from "three";
 
 const Scene = ({
   setCurrentStage,
   setIsDisplay,
   setIsRotating,
   isRotating,
+  isNight,
 }) => {
   const cameraRef = useRef();
   const objectRef = useRef();
   const lightRef = useRef();
   const spotLightRef = useRef();
-  const MaskotRef = useRef();
+  const maskotRef = useRef();
   const { gl, viewport } = useThree();
 
   const lastX = useRef(0);
   const rotationSpeed = useRef(0);
   const dampingFactor = 0.95;
+  const positionY = window.innerWidth < 768 ? -3 : -5;
+
+  useHelper(spotLightRef, SpotLightHelper, 1);
+  const { angle, penumbra, intensity, spotPosition } = useControls({
+    angle: {
+      value: 0.28,
+      min: 0,
+      max: Math.PI/2,
+      step: 0.01,
+    },
+    penumbra: {
+      value: 0.23,
+      min: 0,
+      max: 1,
+      step: 0.01,
+    },
+    intensity: {
+      value: 15000,
+      min: 0,
+      step: 10,
+    },
+    spotPosition: {
+      value: [-60, 102, 36],
+      step: 1,
+    }
+  });
 
   const handlePointerDown = (event) => {
     event.stopPropagation();
@@ -60,17 +91,17 @@ const Scene = ({
       const delta = (clientX - lastX.current) / viewport.width;
 
       // Update the island's rotation based on the mouse/touch movement
-      window.innerWidth < 768 
-      ? objectRef.current.rotation.y += delta * 0.01 * Math.PI
-      : objectRef.current.rotation.y += delta * 0.05 * Math.PI;
+      window.innerWidth < 768
+        ? (objectRef.current.rotation.y += delta * 0.01 * Math.PI)
+        : (objectRef.current.rotation.y += delta * 0.05 * Math.PI);
 
       // Update the reference for the last clientX position
       lastX.current = clientX;
 
       // Update the rotation speed
       window.innerWidth < 768
-      ? rotationSpeed.current = delta * 0.01 * Math.PI
-      : rotationSpeed.current = delta * 0.05 * Math.PI;
+        ? (rotationSpeed.current = delta * 0.01 * Math.PI)
+        : (rotationSpeed.current = delta * 0.05 * Math.PI);
     }
   };
 
@@ -136,27 +167,26 @@ const Scene = ({
     }
   });
 
-  const positionY = window.innerWidth < 768 ? -3 : -5;
-
   return (
     <>
       <PerspectiveCamera position={[0, 5, 50]} ref={cameraRef} makeDefault />;
       {/* lightning */}
-      <ambientLight intensity={1} />
+      <ambientLight intensity={0.5} />
       <directionalLight
         scale={3}
         position={[10, 20, 100]}
         // position={[x, y, z]}
-        intensity={3}
+        intensity={0}
         ref={lightRef}
       />
       <spotLight
         ref={spotLightRef}
         castShadow
-        position={[-60, 102, 36]}
-        angle={0.28}
-        penumbra={0.23}
-        intensity={15000}
+        position={spotPosition}
+        target={maskotRef.current}
+        angle={angle}
+        penumbra={penumbra}
+        intensity={intensity}
         color={"white"}
       />
       <OrbitControls
@@ -167,6 +197,9 @@ const Scene = ({
         dampingFactor={0.03}
       />
       {/* object 3D */}
+
+      <Maskot parentRef={maskotRef} />
+
       <group
         ref={objectRef}
         position={[0, positionY, 0]}
@@ -190,10 +223,21 @@ const Home = () => {
   const [currentStage, setCurrentStage] = useState(null);
   const [isDisplay, setIsDisplay] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
+  const [isNight, setIsNight] = useState(false);
+  const { hour } = useCurrentHour();
+
+  useEffect(() => {
+    if (hour >= 18 || hour <= 6) {
+      setIsNight(true);
+    } else {
+      setIsNight(false);
+    }
+  }, [hour]);
 
   return (
     <div className="overflow-y-hidden">
-      {<Greeting progress={progress} />}
+      {/* {<Greeting progress={progress} />} */}
+
       <div
         style={{ userSelect: "none" }}
         className={`${
@@ -201,10 +245,12 @@ const Home = () => {
         } transition container max-w-screen-md absolute top-24 md:top-40 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
         <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
       </div>
+
       <Canvas
         className={`w-full min-h-screen ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
-        }`}
+        }
+        ${isNight ? "malam" : "siang"}`}
         camera={{ manual: true }}
         shadows={"soft"}>
         <Suspense fallback={<Loader progress={progress} />}>
@@ -213,8 +259,8 @@ const Home = () => {
             setIsDisplay={setIsDisplay}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
+            isNight={isNight}
           />
-          <Maskot />
         </Suspense>
       </Canvas>
     </div>
