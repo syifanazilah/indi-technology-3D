@@ -104,21 +104,23 @@ const Scene = ({ setCurrentStage, setIsDisplay, setIsRotating, isRotating }) => 
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
+        console.log(normalizedRotation);
+
       // Set the current stage based on the island's orientation
       switch (true) {
-        case normalizedRotation >= 5.25 && normalizedRotation <= 5.45:
+        case normalizedRotation >= 5.5 && normalizedRotation <= 6.3:
           setCurrentStage(4);
           setIsDisplay(true);
           break;
-        case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
+        case normalizedRotation >= 1.2 && normalizedRotation <= 1.8:
           setCurrentStage(3);
           setIsDisplay(true);
           break;
-        case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
+        case normalizedRotation >= 2.6 && normalizedRotation <= 3.2:
           setCurrentStage(2);
           setIsDisplay(true);
           break;
-        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
+        case normalizedRotation >= 3.7 && normalizedRotation <= 4.4:
           setCurrentStage(1);
           setIsDisplay(true);
           break;

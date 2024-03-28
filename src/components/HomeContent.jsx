@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
   if (currentStage === 1) {
+    // roket
     return (
       <div>
         <h1 className="text-center text-lg">
@@ -14,6 +15,7 @@ const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
     );
   }
   if (currentStage === 2) {
+    // tangan
     return (
       <div>
         <h1 className="text-center text-lg">
@@ -26,6 +28,7 @@ const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
     );
   }
   if (currentStage === 3) {
+    // puzzle
     return (
       <div>
         <h1 className="text-center text-lg">
@@ -38,6 +41,7 @@ const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
     );
   }
   if (currentStage === 4) {
+    // rumah
     return (
       <div>
         <h1 className="text-center text-lg">
