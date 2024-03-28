@@ -21,7 +21,7 @@ import Burung from "../components/models/burung";
 import Awan from "../components/models/awan";
 import useCurrentHour from "../constant/currentHour";
 import { useControls } from "leva";
-import { SpotLightHelper } from "three";
+import { AxesHelper, SpotLightHelper } from "three";
 
 const Scene = ({
   setCurrentStage,
@@ -41,31 +41,6 @@ const Scene = ({
   const rotationSpeed = useRef(0);
   const dampingFactor = 0.95;
   const positionY = window.innerWidth < 768 ? -3 : -5;
-
-  useHelper(spotLightRef, SpotLightHelper, 1);
-  const { angle, penumbra, intensity, spotPosition } = useControls({
-    angle: {
-      value: 0.28,
-      min: 0,
-      max: Math.PI/2,
-      step: 0.01,
-    },
-    penumbra: {
-      value: 0.23,
-      min: 0,
-      max: 1,
-      step: 0.01,
-    },
-    intensity: {
-      value: 15000,
-      min: 0,
-      step: 10,
-    },
-    spotPosition: {
-      value: [-60, 102, 36],
-      step: 1,
-    }
-  });
 
   const handlePointerDown = (event) => {
     event.stopPropagation();
@@ -197,7 +172,7 @@ const Scene = ({
     <>
       <PerspectiveCamera position={[0, 5, 50]} ref={cameraRef} makeDefault />;
       {/* lightning */}
-      <ambientLight intensity={isNight ? 0.5 : 1} />
+      <ambientLight intensity={isNight ? 0.2 : 0.5} />
       <directionalLight
         scale={3}
         position={[10, 20, 100]}
@@ -208,11 +183,11 @@ const Scene = ({
       <spotLight
         ref={spotLightRef}
         castShadow
-        position={spotPosition}
+        position={isNight ? [0, 40, 96] : [-60, 102, 36]}
         target={maskotRef.current}
-        angle={angle}
-        penumbra={penumbra}
-        intensity={intensity}
+        angle={isNight ? 0.17 : 0.23}
+        penumbra={0.23}
+        intensity={15 * 1000}
         color={"white"}
       />
       <OrbitControls
@@ -223,9 +198,7 @@ const Scene = ({
         dampingFactor={0.03}
       />
       {/* object 3D */}
-
-      <Maskot parentRef={maskotRef} />
-
+      <Maskot ref={maskotRef} />
       <group
         ref={objectRef}
         position={[0, positionY, 0]}
@@ -254,7 +227,7 @@ const Home = () => {
 
   useEffect(() => {
     if (hour >= 18 || hour <= 6) {
-      setIsNight(true);
+      setIsNight(false);
     } else {
       setIsNight(false);
     }
