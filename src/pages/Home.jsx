@@ -60,13 +60,17 @@ const Scene = ({
       const delta = (clientX - lastX.current) / viewport.width;
 
       // Update the island's rotation based on the mouse/touch movement
-      objectRef.current.rotation.y += delta * 0.05 * Math.PI;
+      window.innerWidth < 768 
+      ? objectRef.current.rotation.y += delta * 0.01 * Math.PI
+      : objectRef.current.rotation.y += delta * 0.05 * Math.PI;
 
       // Update the reference for the last clientX position
       lastX.current = clientX;
 
       // Update the rotation speed
-      rotationSpeed.current = delta * 0.05 * Math.PI;
+      window.innerWidth < 768
+      ? rotationSpeed.current = delta * 0.01 * Math.PI
+      : rotationSpeed.current = delta * 0.05 * Math.PI;
     }
   };
 
@@ -134,20 +138,6 @@ const Scene = ({
 
   const positionY = window.innerWidth < 768 ? -3 : -5;
 
-  //mendeteksi apakah user sedang rotate
-  const handleStart = () => {
-    window.onmousemove = (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-
-      setIsRotating(true);
-    };
-  };
-
-  const handleEnd = () => {
-    setIsRotating(false);
-  };
-
   return (
     <>
       <PerspectiveCamera position={[0, 5, 50]} ref={cameraRef} makeDefault />;
@@ -180,9 +170,8 @@ const Scene = ({
       <group
         ref={objectRef}
         position={[0, positionY, 0]}
-        rotation={[0.08, 0, 0]}
-      >
-        <Awan/>
+        rotation={[0.08, 0, 0]}>
+        <Awan />
         <Rocket />
         <Tangan />
         <Puzzle />
@@ -209,8 +198,7 @@ const Home = () => {
         style={{ userSelect: "none" }}
         className={`${
           isDisplay ? "home-content" : "home-content-hidden"
-        } transition container max-w-screen-md absolute top-24 md:top-40 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}
-      >
+        } transition container max-w-screen-md absolute top-24 md:top-40 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
         <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
       </div>
       <Canvas
@@ -218,8 +206,7 @@ const Home = () => {
           isRotating ? "cursor-grabbing" : "cursor-grab"
         }`}
         camera={{ manual: true }}
-        shadows={"soft"}
-      >
+        shadows={"soft"}>
         <Suspense fallback={<Loader progress={progress} />}>
           <Scene
             setCurrentStage={setCurrentStage}

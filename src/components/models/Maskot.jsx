@@ -2,6 +2,7 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import maskot from "../../assets/3D/maskot.glb";
 import adjusctScale from "../../constant/adjustScale";
+import { useFrame } from "@react-three/fiber";
 
 const Maskot = ({ isRotating, parentRef }) => {
   const gltf = useGLTF(maskot);
@@ -17,11 +18,16 @@ const Maskot = ({ isRotating, parentRef }) => {
     });
   }, []);
 
+  useFrame((state, delta, _) => {
+    window.innerWidth < 768
+      ? (ref.current.position.y = -3 + Math.sin(state.clock.elapsedTime * 2) + 0.5)
+      : (ref.current.position.y = -4 + Math.sin(state.clock.elapsedTime * 2));
+  });
+
   return (
     <group ref={parentRef} >
       <group
         ref={ref}
-        position={[0, -5.5, 0]}
         scale={adjusctScale()}
       >
         <primitive object={gltf.scene} key={gltf} />

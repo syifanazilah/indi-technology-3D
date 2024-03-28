@@ -2,7 +2,7 @@ const adjusctScale = () => {
     let screenScale;
 
     if (window.innerWidth < 768) {
-      screenScale = 0.6;
+      screenScale = 0.7;
     } else {
       screenScale = 1;
     }
