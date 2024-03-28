@@ -1,7 +1,6 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useEffect, useRef } from "react";
-import maskot from "../../assets/3D/maskotutama2.glb";
-import { useControls } from "leva";
+import maskot from "../../assets/3D/maskot.glb";
 import adjusctScale from "../../constant/adjustScale";
 
 const Maskot = ({ isRotating, parentRef }) => {
@@ -17,53 +16,6 @@ const Maskot = ({ isRotating, parentRef }) => {
       }
     });
   }, []);
-
-  // useEffect(() => {
-  //   actions[names[0]].play();
-  //   if (isRotating) {
-  //     actions[names[0]].paused = false;
-  //   } else {
-  //     actions[names[0]].paused = true;
-  //   }
-  // }, [isRotating, actions]);
-
-  // const timeScaleRef = useRef(1);
-  // const prevMouseX = useRef(null);
-  // const prevTouchX = useRef(null);
-
-  // //kecepatan animasi
-  // const kecepatan = window.innerWidth < 768 ? 2 : 1.7;
-  // useFrame(() => {
-  //   actions[names[0]].timeScale = timeScaleRef.current * kecepatan;
-  // });
-
-  // window.onmousemove = (event) => {
-  //   const mouseX = event.clientX;
-
-  //   // Deteksi arah gerakan mouse (kiri atau kanan)
-  //   if (prevMouseX.current !== null && mouseX !== prevMouseX.current) {
-  //     const direction = mouseX > prevMouseX.current ? "right" : "left";
-  //     timeScaleRef.current = direction === "left" ? 1 : -1;
-  //   }
-
-  //   prevMouseX.current = mouseX;
-  // };
-
-  // const getTouchX = (event) => {
-  //   return event.touches ? event.touches[0].clientX : event.clientX;
-  // };
-
-  // window.ontouchmove = (event) => {
-  //   const touchX = getTouchX(event);
-
-  //   // Deteksi arah gerakan sentuhan
-  //   if (prevTouchX.current !== null && touchX !== prevTouchX.current) {
-  //     const direction = touchX > prevTouchX.current ? "right" : "left";
-  //     timeScaleRef.current = direction === "left" ? 1 : -1;
-  //   }
-
-  //   prevTouchX.current = touchX;
-  // };
 
   return (
     <group ref={parentRef} >

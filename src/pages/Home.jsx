@@ -11,7 +11,6 @@ import Puzzle from "../components/models/puzzle";
 import Tangan from "../components/models/tangan";
 import RumahAsap from "../components/models/rumahasap";
 import Rocket from "../components/models/rocket";
-import { useControls } from "leva";
 import HomeContent from "../components/HomeContent";
 import Greeting from "./Greeting";
 import Pohon from "../components/models/pohon";
@@ -110,9 +109,6 @@ const Scene = ({
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
-      console.log(normalizedRotation);
-
-      // Set the current stage based on the island's orientation
       switch (true) {
         case normalizedRotation >= 5.5 && normalizedRotation <= 6.3:
           setCurrentStage(4);
@@ -131,7 +127,6 @@ const Scene = ({
           setIsDisplay(true);
           break;
         default:
-          setCurrentStage(null);
           setIsDisplay(false);
       }
     }
