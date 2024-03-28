@@ -19,59 +19,58 @@ const Maskot = ({ isRotating, parentRef }) => {
     });
   }, []);
 
-  useEffect(() => {
-    actions[names[0]].fadeIn().play();
-    if (isRotating) {
-      actions[names[0]].paused = false;
-    } else {
-      actions[names[0]].paused = true;
-    }
-  }, [isRotating]);
+  // useEffect(() => {
+  //   actions[names[0]].fadeIn().play();
+  //   if (isRotating) {
+  //     actions[names[0]].paused = false;
+  //   } else {
+  //     actions[names[0]].paused = true;
+  //   }
+  // }, [isRotating]);
 
-  const timeScaleRef = useRef(1);
-  const prevMouseX = useRef(null);
-  const prevTouchX = useRef(null);
+  // const timeScaleRef = useRef(1);
+  // const prevMouseX = useRef(null);
+  // const prevTouchX = useRef(null);
 
-  //kecepatan animasi
-  const kecepatan = window.innerWidth < 768 ? 2 : 1.7;
-  useFrame(() => {
-    actions[names[0]].timeScale = timeScaleRef.current * kecepatan;
-  });
+  // //kecepatan animasi
+  // const kecepatan = window.innerWidth < 768 ? 2 : 1.7;
+  // useFrame(() => {
+  //   actions[names[0]].timeScale = timeScaleRef.current * kecepatan;
+  // });
 
-  window.onmousemove = (event) => {
-    const mouseX = event.clientX;
+  // window.onmousemove = (event) => {
+  //   const mouseX = event.clientX;
 
-    // Deteksi arah gerakan mouse (kiri atau kanan)
-    if (prevMouseX.current !== null && mouseX !== prevMouseX.current) {
-      const direction = mouseX > prevMouseX.current ? "right" : "left";
-      timeScaleRef.current = direction === "left" ? 1 : -1;
-    }
+  //   // Deteksi arah gerakan mouse (kiri atau kanan)
+  //   if (prevMouseX.current !== null && mouseX !== prevMouseX.current) {
+  //     const direction = mouseX > prevMouseX.current ? "right" : "left";
+  //     timeScaleRef.current = direction === "left" ? 1 : -1;
+  //   }
 
-    prevMouseX.current = mouseX;
-  };
+  //   prevMouseX.current = mouseX;
+  // };
 
-  const getTouchX = (event) => {
-    return event.touches ? event.touches[0].clientX : event.clientX;
-  };
+  // const getTouchX = (event) => {
+  //   return event.touches ? event.touches[0].clientX : event.clientX;
+  // };
 
-  window.ontouchmove = (event) => {
-    const touchX = getTouchX(event);
+  // window.ontouchmove = (event) => {
+  //   const touchX = getTouchX(event);
 
-    // Deteksi arah gerakan sentuhan
-    if (prevTouchX.current !== null && touchX !== prevTouchX.current) {
-      const direction = touchX > prevTouchX.current ? "right" : "left";
-      timeScaleRef.current = direction === "left" ? 1 : -1;
-    }
+  //   // Deteksi arah gerakan sentuhan
+  //   if (prevTouchX.current !== null && touchX !== prevTouchX.current) {
+  //     const direction = touchX > prevTouchX.current ? "right" : "left";
+  //     timeScaleRef.current = direction === "left" ? 1 : -1;
+  //   }
 
-    prevTouchX.current = touchX;
-  };
+  //   prevTouchX.current = touchX;
+  // };
 
   return (
-    <group ref={parentRef} lookAt={[0, 0, 0]}>
+    <group ref={parentRef} >
       <group
         ref={ref}
-        position={[0, .7, 0]}
-        lookAt={[0, 0, 0]}
+        position={[0, -5.5, 0]}
         scale={adjusctScale()}
       >
         <primitive object={gltf.scene} key={gltf} />
