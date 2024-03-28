@@ -7,6 +7,7 @@ import { OrbitControls } from "@react-three/drei";
 import Navbar from "./components/Navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
+import { useNightContext } from "./context/nightContext";
 
 function App() {
   const location = useLocation();

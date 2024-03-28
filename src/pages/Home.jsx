@@ -22,13 +22,13 @@ import Awan from "../components/models/awan";
 import useCurrentHour from "../constant/currentHour";
 import { useControls } from "leva";
 import { AxesHelper, SpotLightHelper } from "three";
+import { useNightContext } from "../context/nightContext";
 
 const Scene = ({
   setCurrentStage,
   setIsDisplay,
   setIsRotating,
   isRotating,
-  isNight,
 }) => {
   const cameraRef = useRef();
   const objectRef = useRef();
@@ -36,6 +36,7 @@ const Scene = ({
   const spotLightRef = useRef();
   const maskotRef = useRef();
   const { gl, viewport } = useThree();
+  const { isNight } = useNightContext();
 
   const lastX = useRef(0);
   const rotationSpeed = useRef(0);
@@ -105,7 +106,7 @@ const Scene = ({
   // Handle keyup events
   const handleKeyUp = (event) => {
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-        setIsRotating(false);
+      setIsRotating(false);
     }
   };
 
@@ -177,7 +178,7 @@ const Scene = ({
         scale={3}
         position={[10, 20, 100]}
         // position={[x, y, z]}
-        intensity={isNight ? 0 : 3}
+        intensity={isNight ? 0 : 1.5}
         ref={lightRef}
       />
       <spotLight
@@ -222,16 +223,7 @@ const Home = () => {
   const [currentStage, setCurrentStage] = useState(null);
   const [isDisplay, setIsDisplay] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
-  const [isNight, setIsNight] = useState(false);
-  const { hour } = useCurrentHour();
-
-  useEffect(() => {
-    if (hour >= 18 || hour <= 6) {
-      setIsNight(true);
-    } else {
-      setIsNight(false);
-    }
-  }, [hour]);
+  const { isNight } = useNightContext();
 
   return (
     <div className="overflow-y-hidden">
@@ -258,7 +250,6 @@ const Home = () => {
             setIsDisplay={setIsDisplay}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
-            isNight={isNight}
           />
         </Suspense>
       </Canvas>
