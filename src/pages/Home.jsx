@@ -18,8 +18,14 @@ import Pohon from "../components/models/pohon";
 import Loader from "../components/Loader";
 import Maskot from "../components/models/Maskot";
 import Burung from "../components/models/burung";
+import Awan from "../components/models/awan";
 
-const Scene = ({ setCurrentStage, setIsDisplay, setIsRotating, isRotating }) => {
+const Scene = ({
+  setCurrentStage,
+  setIsDisplay,
+  setIsRotating,
+  isRotating,
+}) => {
   const cameraRef = useRef();
   const objectRef = useRef();
   const lightRef = useRef();
@@ -78,13 +84,13 @@ const Scene = ({ setCurrentStage, setIsDisplay, setIsRotating, isRotating }) => 
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointermove", handlePointerMove);
-    
+
     // Remove event listeners when component unmounts
     return () => {
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("pointerup", handlePointerUp);
       canvas.removeEventListener("pointermove", handlePointerMove);
-    };  
+    };
   }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
 
   useFrame(() => {
@@ -104,7 +110,7 @@ const Scene = ({ setCurrentStage, setIsDisplay, setIsRotating, isRotating }) => 
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
-        console.log(normalizedRotation);
+      console.log(normalizedRotation);
 
       // Set the current stage based on the island's orientation
       switch (true) {
@@ -138,7 +144,7 @@ const Scene = ({ setCurrentStage, setIsDisplay, setIsRotating, isRotating }) => 
     window.onmousemove = (e) => {
       e.stopPropagation();
       e.preventDefault();
-      
+
       setIsRotating(true);
     };
   };
@@ -168,12 +174,20 @@ const Scene = ({ setCurrentStage, setIsDisplay, setIsRotating, isRotating }) => 
         intensity={15000}
         color={"white"}
       />
+      <OrbitControls
+        enableRotate={false}
+        enablePan={false}
+        maxDistance={60}
+        minDistance={45}
+        dampingFactor={0.03}
+      />
       {/* object 3D */}
       <group
         ref={objectRef}
         position={[0, positionY, 0]}
-        rotation={[0.08, 0, 0]}>
-
+        rotation={[0.08, 0, 0]}
+      >
+        <Awan/>
         <Rocket />
         <Tangan />
         <Puzzle />
@@ -200,13 +214,17 @@ const Home = () => {
         style={{ userSelect: "none" }}
         className={`${
           isDisplay ? "home-content" : "home-content-hidden"
-        } transition container max-w-screen-md absolute top-24 md:top-40 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
+        } transition container max-w-screen-md absolute top-24 md:top-40 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}
+      >
         <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
       </div>
       <Canvas
-        className={`w-full min-h-screen ${isRotating ? "cursor-grabbing" : "cursor-grab" }`}
+        className={`w-full min-h-screen ${
+          isRotating ? "cursor-grabbing" : "cursor-grab"
+        }`}
         camera={{ manual: true }}
-        shadows={"soft"}>
+        shadows={"soft"}
+      >
         <Suspense fallback={<Loader progress={progress} />}>
           <Scene
             setCurrentStage={setCurrentStage}
@@ -214,7 +232,7 @@ const Home = () => {
             isRotating={isRotating}
             setIsRotating={setIsRotating}
           />
-          <Maskot/>
+          <Maskot />
         </Suspense>
       </Canvas>
     </div>

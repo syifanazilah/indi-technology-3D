@@ -1,8 +1,7 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useEffect, useRef } from "react";
-import maskot from "../../assets/3D/maskot.glb";
+import maskot from "../../assets/3D/maskotutama2.glb";
 import { useControls } from "leva";
-import { useFrame } from "@react-three/fiber";
 import adjusctScale from "../../constant/adjustScale";
 
 const Maskot = ({ isRotating, parentRef }) => {
@@ -13,20 +12,20 @@ const Maskot = ({ isRotating, parentRef }) => {
   useEffect(() => {
     gltf.scene.traverse((child) => {
       if (child.isMesh) {
-        child.castShadow = true;
+        child.castShadow = true;  
         child.receiveShadow = true;
       }
     });
   }, []);
 
   // useEffect(() => {
-  //   actions[names[0]].fadeIn().play();
+  //   actions[names[0]].play();
   //   if (isRotating) {
   //     actions[names[0]].paused = false;
   //   } else {
   //     actions[names[0]].paused = true;
   //   }
-  // }, [isRotating]);
+  // }, [isRotating, actions]);
 
   // const timeScaleRef = useRef(1);
   // const prevMouseX = useRef(null);
