@@ -177,7 +177,7 @@ const Scene = ({
         ref={objectRef}
         position={[0, positionY, 0]}
         rotation={[0.08, 0, 0]}>
-        <Awan />
+        <Awan isNight={isNight} />
         <Rocket />
         <Tangan />
         <Puzzle />
@@ -201,7 +201,7 @@ const Home = () => {
 
   useEffect(() => {
     if (hour >= 18 || hour <= 6) {
-      setIsNight(false);
+      setIsNight(true);
     } else {
       setIsNight(false);
     }
