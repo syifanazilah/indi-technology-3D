@@ -12,7 +12,7 @@ const Tangan = () => {
       gltf.scene.traverse((child) => {
         if (child.isMesh) {
           child.castShadow = true;
-          child.receiveShadow = true;
+          // child.receiveShadow = true;
         }
       });
     })
