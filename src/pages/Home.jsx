@@ -171,12 +171,12 @@ const Scene = ({
     <>
       <PerspectiveCamera position={[0, 5, 50]} ref={cameraRef} makeDefault />;
       {/* lightning */}
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={isNight ? 0.5 : 1} />
       <directionalLight
         scale={3}
         position={[10, 20, 100]}
         // position={[x, y, z]}
-        intensity={0}
+        intensity={isNight ? 0 : 3}
         ref={lightRef}
       />
       <spotLight
