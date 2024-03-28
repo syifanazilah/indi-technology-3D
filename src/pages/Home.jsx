@@ -131,18 +131,6 @@ const Scene = ({ setCurrentStage, setIsDisplay, setIsRotating, isRotating }) => 
     }
   });
 
-  //orbit pesawat (klo dipake)
-  // useFrame((state) => {
-  //   const pesawat = pesawatRef.current;
-
-  //   // Mengatur rotasi pesawat agar menghadap ke pusat orbit
-  //   const angle = Math.atan2(pesawat.position.x, pesawat.position.z);
-  //   pesawat.rotation.y = angle - Math.PI / 2;
-
-  //   pesawat.position.x = Math.sin(state.clock.elapsedTime * waktu) * radius;
-  //   pesawat.position.z = Math.cos(state.clock.elapsedTime * waktu) * radius;
-  // })
-
   const positionY = window.innerWidth < 768 ? -3 : -5;
 
   //mendeteksi apakah user sedang rotate
@@ -158,35 +146,6 @@ const Scene = ({ setCurrentStage, setIsDisplay, setIsRotating, isRotating }) => 
   const handleEnd = () => {
     setIsRotating(false);
   };
-
-  // const handleKeyDown = (event) => {
-  //   if (event.key === "ArrowLeft") {
-  //     if (true) OrbitControls;
-      
-  //     objectRef.current.rotation.y += 0.005 * Math.PI;
-  //   } else if (event.key === "ArrowRight") {
-  //     if (true) OrbitControls;
-
-  //     objectRef.current.rotation.y -= 0.005 * Math.PI;
-  //   }
-  // };
-
-  // // Handle keyup events
-  // const handleKeyUp = (event) => {
-  //   if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-  //     !OrbitControls;
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("keydown", handleKeyDown);
-  //   window.addEventListener("keyup", handleKeyUp);
-
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //     window.removeEventListener("keyup", handleKeyUp);
-  //   };
-  // }, []);
 
   return (
     <>
