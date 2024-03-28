@@ -2,10 +2,6 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 import island from "../../assets/3D/scene.glb";
 import adjusctScale from "../../constant/adjustScale";
 import { useEffect } from "react";
-import { AnimationMixer } from "three";
-import Pohon from "./pohon";
-import Burung from "./burung";
-// import { Burung1 } from "./burung1";
 
 const Island = ({ ...props }) => {
   const gltf = useGLTF(island);

@@ -1,10 +1,10 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
-import rumah from "../../assets/3D/gedung.glb";
+import awan from "../../assets/3D/awan.glb";
 import adjusctScale from "../../constant/adjustScale";
 import { useEffect } from "react";
 
-const Rumah = () => {
-  const gltf = useGLTF(rumah);
+const Awan = () => {
+  const gltf = useGLTF(awan);
   const { ref, actions, names } = useAnimations(gltf.animations);
 
   useEffect(() => {
@@ -12,8 +12,8 @@ const Rumah = () => {
       actions[name].play();
       gltf.scene.traverse((child) => {
         if (child.isMesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
+        //   child.castShadow = true;
+        //   child.receiveShadow = true;
         }
       });
     })
@@ -26,4 +26,4 @@ const Rumah = () => {
   );
 };
 
-export default Rumah;
+export default Awan;
