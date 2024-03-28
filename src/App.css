@@ -11,7 +11,7 @@ canvas {
 }
 
 .malam {
-  @apply bg-gradient-to-t from-[#020A2E] to-[#24487B];
+  @apply bg-gradient-to-b from-[#020A2E] to-[#031666];
 }
 
 ::-webkit-scrollbar {

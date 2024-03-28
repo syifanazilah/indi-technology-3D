@@ -92,12 +92,12 @@ const Scene = ({
     if (event.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
 
-      objectRef.current.rotation.y += 0.04 * Math.PI;
+      objectRef.current.rotation.y += 0.01 * Math.PI;
       rotationSpeed.current = 0.007;
     } else if (event.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
 
-      objectRef.current.rotation.y -= 0.04 * Math.PI;
+      objectRef.current.rotation.y -= 0.01 * Math.PI;
       rotationSpeed.current = -0.007;
     }
   };
@@ -105,7 +105,7 @@ const Scene = ({
   // Handle keyup events
   const handleKeyUp = (event) => {
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-      setIsRotating(false);
+        setIsRotating(false);
     }
   };
 
