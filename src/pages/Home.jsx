@@ -3,8 +3,8 @@ import {
   PerspectiveCamera,
   useProgress,
 } from "@react-three/drei";
-import { Canvas, extend, useFrame } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Suspense, useRef, useState, useEffect } from "react";
 import Island from "../components/models/Island";
 import Rumah from "../components/models/home";
 import Puzzle from "../components/models/puzzle";
@@ -18,48 +18,114 @@ import Pohon from "../components/models/pohon";
 import Loader from "../components/Loader";
 import Maskot from "../components/models/Maskot";
 import Burung from "../components/models/burung";
-extend({ OrbitControls });
 
-const Scene = ({ setCurrentStage, setIsDisplay }) => {
+const Scene = ({ setCurrentStage, setIsDisplay, setIsRotating, isRotating }) => {
   const cameraRef = useRef();
   const objectRef = useRef();
   const lightRef = useRef();
   const spotLightRef = useRef();
   const MaskotRef = useRef();
-  const [isRotating, setIsRotating] = useState(false);
+  const { gl, viewport } = useThree();
 
-  // cek posisi
+  const lastX = useRef(0);
+  const rotationSpeed = useRef(0);
+  const dampingFactor = 0.95;
+
+  const handlePointerDown = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setIsRotating(true);
+
+    // Calculate the clientX based on whether it's a touch event or a mouse event
+    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+
+    // Store the current clientX position for reference
+    lastX.current = clientX;
+  };
+
+  const handlePointerMove = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    if (isRotating) {
+      // If rotation is enabled, calculate the change in clientX position
+      const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+
+      // calculate the change in the horizontal position of the mouse cursor or touch input,
+      // relative to the viewport's width
+      const delta = (clientX - lastX.current) / viewport.width;
+
+      // Update the island's rotation based on the mouse/touch movement
+      objectRef.current.rotation.y += delta * 0.05 * Math.PI;
+
+      // Update the reference for the last clientX position
+      lastX.current = clientX;
+
+      // Update the rotation speed
+      rotationSpeed.current = delta * 0.05 * Math.PI;
+    }
+  };
+
+  // Handle pointer (mouse or touch) up event
+  const handlePointerUp = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setIsRotating(false);
+  };
+
+  useEffect(() => {
+    // Add event listeners for pointer and keyboard events
+    const canvas = gl.domElement;
+    canvas.addEventListener("pointerdown", handlePointerDown);
+    canvas.addEventListener("pointerup", handlePointerUp);
+    canvas.addEventListener("pointermove", handlePointerMove);
+    
+    // Remove event listeners when component unmounts
+    return () => {
+      canvas.removeEventListener("pointerdown", handlePointerDown);
+      canvas.removeEventListener("pointerup", handlePointerUp);
+      canvas.removeEventListener("pointermove", handlePointerMove);
+    };  
+  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+
   useFrame(() => {
-    const { x, z } = cameraRef.current.position;
+    if (!isRotating) {
+      // Apply damping factor
+      rotationSpeed.current *= dampingFactor;
 
-    const posisiRumah = x >= -25 && x <= 10 && z >= -45 && z <= -30;
-    const posisiRoket = x >= -40 && x <= -20 && z >= 5 && z <= 25;
-    const posisiPuzzle = z >= -5 && z <= 15 && x >= 35;
-    const posisiTangan = x >= -10 && x <= 10;
+      // Stop rotation when speed is very small
+      if (Math.abs(rotationSpeed.current) < 0.001) {
+        rotationSpeed.current = 0;
+      }
 
-    switch (true) {
-      case posisiRumah:
-        setCurrentStage(1);
-        setIsDisplay(true);
-        break;
-      case posisiRoket:
-        setCurrentStage(2);
-        setIsDisplay(true);
+      objectRef.current.rotation.y += rotationSpeed.current;
+    } else {
+      const rotation = objectRef.current.rotation.y;
 
-        break;
-      case posisiTangan:
-        setCurrentStage(3);
-        setIsDisplay(true);
+      const normalizedRotation =
+        ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
-        break;
-      case posisiPuzzle:
-        setCurrentStage(4);
-        setIsDisplay(true);
-
-        break;
-      default:
-        setIsDisplay(false);
-        break;
+      // Set the current stage based on the island's orientation
+      switch (true) {
+        case normalizedRotation >= 5.25 && normalizedRotation <= 5.45:
+          setCurrentStage(4);
+          setIsDisplay(true);
+          break;
+        case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
+          setCurrentStage(3);
+          setIsDisplay(true);
+          break;
+        case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
+          setCurrentStage(2);
+          setIsDisplay(true);
+          break;
+        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
+          setCurrentStage(1);
+          setIsDisplay(true);
+          break;
+        default:
+          setCurrentStage(null);
+          setIsDisplay(false);
+      }
     }
   });
 
@@ -91,9 +157,38 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
     setIsRotating(false);
   };
 
+  // const handleKeyDown = (event) => {
+  //   if (event.key === "ArrowLeft") {
+  //     if (true) OrbitControls;
+      
+  //     objectRef.current.rotation.y += 0.005 * Math.PI;
+  //   } else if (event.key === "ArrowRight") {
+  //     if (true) OrbitControls;
+
+  //     objectRef.current.rotation.y -= 0.005 * Math.PI;
+  //   }
+  // };
+
+  // // Handle keyup events
+  // const handleKeyUp = (event) => {
+  //   if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+  //     !OrbitControls;
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("keydown", handleKeyDown);
+  //   window.addEventListener("keyup", handleKeyUp);
+
+  //   return () => {
+  //     window.removeEventListener("keydown", handleKeyDown);
+  //     window.removeEventListener("keyup", handleKeyUp);
+  //   };
+  // }, []);
+
   return (
     <>
-      <PerspectiveCamera position={[0, 10, -40]} ref={cameraRef} makeDefault />;
+      <PerspectiveCamera position={[0, 5, 50]} ref={cameraRef} makeDefault />;
       {/* lightning */}
       <ambientLight intensity={1} />
       <directionalLight
@@ -112,24 +207,11 @@ const Scene = ({ setCurrentStage, setIsDisplay }) => {
         intensity={15000}
         color={"white"}
       />
-      <OrbitControls
-        enableRotate={true}
-        enablePan={false}
-        maxPolarAngle={1.4}
-        minPolarAngle={1.3}
-        maxDistance={45}
-        minDistance={40}
-        dampingFactor={0.03}
-        rotateSpeed={window.innerWidth < 768 ? 0.5 : 0.2}
-        onStart={handleStart}
-        onEnd={handleEnd}
-      />
       {/* object 3D */}
       <group
         ref={objectRef}
         position={[0, positionY, 0]}
-        rotation={[0, 3.03, 0]}>
-        <Maskot isRotating={isRotating} parentRef={MaskotRef} />
+        rotation={[0.08, 0, 0]}>
 
         <Rocket />
         <Tangan />
@@ -148,6 +230,7 @@ const Home = () => {
   const { progress } = useProgress();
   const [currentStage, setCurrentStage] = useState(null);
   const [isDisplay, setIsDisplay] = useState(false);
+  const [isRotating, setIsRotating] = useState(false);
 
   return (
     <div className="overflow-y-hidden">
@@ -160,14 +243,17 @@ const Home = () => {
         <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
       </div>
       <Canvas
-        className="w-full min-h-screen"
+        className={`w-full min-h-screen ${isRotating ? "cursor-grabbing" : "cursor-grab" }`}
         camera={{ manual: true }}
         shadows={"soft"}>
         <Suspense fallback={<Loader progress={progress} />}>
           <Scene
             setCurrentStage={setCurrentStage}
             setIsDisplay={setIsDisplay}
+            isRotating={isRotating}
+            setIsRotating={setIsRotating}
           />
+          <Maskot/>
         </Suspense>
       </Canvas>
     </div>
