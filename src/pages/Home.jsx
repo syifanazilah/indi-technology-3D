@@ -23,6 +23,7 @@ import useCurrentHour from "../constant/currentHour";
 import { useControls } from "leva";
 import { AxesHelper, SpotLightHelper } from "three";
 import { useNightContext } from "../context/nightContext";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 const Scene = ({
   setCurrentStage,
@@ -252,6 +253,15 @@ const Home = () => {
             isRotating={isRotating}
             setIsRotating={setIsRotating}
           />
+          <EffectComposer multisampling={0} enabled={isNight}>
+            <Bloom
+              luminanceThreshold={0}
+              luminanceSmoothing={0.9}
+              height={500}
+              opacity={1}
+              intensity={0.5}
+            />
+          </EffectComposer>
         </Suspense>
       </Canvas>
     </div>
