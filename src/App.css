@@ -99,42 +99,10 @@ body {
 
 /* absolute w-full h-[60%] bottom-0 left-0 bg-[#E1E7F5]/[.3] transform translate-y-36 flex items-center space-y-9 flex-col rounded-b-lg */
 
-.kontener .boxcard {
-  position: relative;
-  overflow: hidden;
-  display: flex;
+ /* .boxcard {
+  @apply relative overflow-hidden flex;
 }
 
-.boxcard {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-}
-
-.boxcard .layercard {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60%;
-  background-color: rgba(255, 255, 255, 0.26);
-  display: flex;
-  gap: 45px;
-  align-items: center;
-  flex-direction: column;
-  transform: translateY(100%);
-  transition: .5s ease;
-}
-
-.boxcard:hover .layercard {
-  transform: translateY(0);
-}
-
-.boxcard img {
-  transition: .5s ease;
-}
-
-.boxcard:hover img {
-  transform: scale(1.1);
-}
+.layercard {
+  @apply bg-blue-800/80 absolute bottom-0 left-0 w-full h-[60%] flex gap-[45px] items-center flex-col translate-y-full transition-transform duration-500 ease-out;
+} */
