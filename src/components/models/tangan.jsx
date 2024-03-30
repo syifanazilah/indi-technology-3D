@@ -8,17 +8,6 @@ const Tangan = () => {
   const gltf = useGLTF(tangan);
   const { ref, actions, names } = useAnimations(gltf.animations);
 
-  const { position, rotation } = useControls({
-    position: {
-      value: [-2, -1.5, 0],
-      step: 0.1,
-    },
-    rotation: {
-      value: [0, -1.5, 0],
-      step: 0.1,
-    }
-  });
-
   useEffect(() => {
     names.forEach((name) => {
       actions[name].play();
@@ -32,7 +21,7 @@ const Tangan = () => {
   }, [actions, names]);
 
   return (
-    <group ref={ref} position={position} rotation={rotation} scale={1.1}>
+    <group ref={ref} position={[-2, -1.5, 0]} rotation={[0, -1.5, 0]} scale={1.1}>
       <primitive object={gltf.scene} key={gltf} scale={adjusctScale()} />
     </group>
   );

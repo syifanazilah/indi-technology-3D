@@ -24,6 +24,7 @@ import { useControls } from "leva";
 import { AxesHelper, SpotLightHelper } from "three";
 import { useNightContext } from "../context/nightContext";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
+import Matahari from "../components/models/matahari";
 
 const Scene = ({
   setCurrentStage,
@@ -202,6 +203,7 @@ const Scene = ({
       />
       {/* object 3D */}
       <Maskot ref={maskotRef} />
+      {/* <Matahari /> */}
       <group
         ref={objectRef}
         position={[0, positionY, 0]}
@@ -239,6 +241,10 @@ const Home = () => {
         <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
       </div>
 
+      {/* <div className="relative">
+        <img src="/matahari.png" className="absolute z-10 h-auto top-0 left-56"/>
+      </div> */}
+
       <Canvas
         className={`w-full min-h-screen ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
@@ -253,7 +259,7 @@ const Home = () => {
             isRotating={isRotating}
             setIsRotating={setIsRotating}
           />
-          <EffectComposer multisampling={0} enabled={isNight}>
+          {/* <EffectComposer multisampling={0} enabled={true}>
             <Bloom
               luminanceThreshold={0}
               luminanceSmoothing={0.9}
@@ -261,7 +267,7 @@ const Home = () => {
               opacity={1}
               intensity={0.5}
             />
-          </EffectComposer>
+          </EffectComposer> */}
         </Suspense>
       </Canvas>
     </div>
