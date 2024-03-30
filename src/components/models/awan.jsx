@@ -1,5 +1,5 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
-import awan from "../../assets/3D/awan.glb";
+import awan from "../../assets/3D/awan2.glb";
 import adjusctScale from "../../constant/adjustScale";
 import { useEffect } from "react";
 import { MeshBasicMaterial, MeshStandardMaterial, MeshToonMaterial } from "three";
