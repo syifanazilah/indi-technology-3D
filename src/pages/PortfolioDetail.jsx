@@ -220,7 +220,7 @@ export const PortfolioDetail5 = () => {
     <section className="mx-10 flex flex-col items-center">
       <div className="text-center">
         <h1 className="text-white font-medium text-3xl">
-          Website project 5
+          PINA Web Development
         </h1>
       </div>
 
@@ -248,7 +248,7 @@ export const PortfolioDetail5 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+              <p className="text-lg ">Non-Government Budget Investment Financing or Pembiayaan Investasi Non-Anggaran Pemerintah ( PINA ) is a facilitation scheme aimed to accelerate the private investment financing of national strategic projects, which source of funding is originated from non-government budget (non-APBN/APBD) and is fully supported by government policies.</p>
           </div>
         </div>
       </div>
@@ -266,7 +266,7 @@ export const PortfolioDetail6 = () => {
     <section className="mx-10 flex flex-col items-center">
       <div className="text-center">
         <h1 className="text-white font-medium text-3xl">
-          Website project 6
+          Rimbun Web Development
         </h1>
       </div>
 
@@ -294,7 +294,7 @@ export const PortfolioDetail6 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+              <p className="text-lg ">Rimbun Landscape as a green decor, urban farming and landscape service, wants to make urban communities easy to grow plants in limited spaces. They provide innovative, simple and practical products and services to grow anywhere, by anyone to increase green space growth and urban food security in cities throughout Indonesia and South East Asia. Rimbun got award from IdeaJam 2018 business incubation as The Most Improved Business.</p>
           </div>
         </div>
       </div>
@@ -312,7 +312,7 @@ export const PortfolioDetail7 = () => {
     <section className="mx-10 flex flex-col items-center">
       <div className="text-center">
         <h1 className="text-white font-medium text-3xl">
-          Website project 7
+          GDG Devfest 2016
         </h1>
       </div>
 
@@ -340,7 +340,8 @@ export const PortfolioDetail7 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+              <p className="text-lg mb-4">DevFests are community-led, developer events hosted by GDG chapters around the globe focused on community building and learning about Google’s technologies. Each DevFest is inspired by and uniquely tailored to the needs of the developer community and region that hosts it.</p>
+              <p className="text-lg mb-4">While no two DevFests will be exactly alike, each at its core is powered by a shared belief that when developers come together to exchange ideas, amazing things can happen.</p>
           </div>
         </div>
       </div>

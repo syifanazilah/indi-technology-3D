@@ -31,6 +31,21 @@ const Portfolio = () => {
           <CardImg src={"/assets/icons/Denny-AK-1.jpg"} />
           <CardTitle>Denny AK Attorney</CardTitle>
         </Card>
+
+        <Card to={"/portfoliodetail5"}>
+          <CardImg src={"/asset/icons/Pina-Bappenas-Web-Dev-1.jpg"} />
+          <CardTitle>PINA Web Development</CardTitle>
+        </Card>
+
+        <Card to={"/portfoliodetail6"}>
+          <CardImg src={"/asset/icons/Rimbun-Web-dev-1.jpg"} />
+          <CardTitle>Rimbun Web Development</CardTitle>
+        </Card>
+
+        <Card to={"/portfoliodetail7"}>
+          <CardImg src={"/asset/icons/GDG-DevFest-1.jpg"} />
+          <CardTitle>GDG Devfest 2016</CardTitle>
+        </Card>
       </div>
     </section>
   );
