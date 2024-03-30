@@ -25,6 +25,7 @@ import { AxesHelper, SpotLightHelper } from "three";
 import { useNightContext } from "../context/nightContext";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import Matahari from "../components/models/matahari";
+import adjustAngle from "../constant/adjustAngle";
 
 const Scene = ({
   setCurrentStage,
@@ -175,7 +176,7 @@ const Scene = ({
     <>
       <PerspectiveCamera position={[0, 5, 50]} ref={cameraRef} makeDefault />;
       {/* lightning */}
-      <ambientLight intensity={isNight ? 0.1 : 0.5} />
+      <ambientLight intensity={isNight ? 0.05 : 0.5} />
       <directionalLight
         scale={3}
         position={[10, 20, 100]}
@@ -189,7 +190,7 @@ const Scene = ({
         castShadow
         position={isNight ? [0, 40, 96] : [-60, 102, 36]}
         target={maskotRef.current}
-        angle={isNight ? 0.17 : 0.23}
+        angle={adjustAngle()}
         penumbra={0.23}
         intensity={15 * 1000}
         color={"white"}

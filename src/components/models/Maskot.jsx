@@ -29,8 +29,11 @@ const Maskot = forwardRef(({ isRotating }, parentRef) => {
       : (ref.current.position.y = -4 + Math.sin(state.clock.elapsedTime * 2));
   });
 
+
+  const z = window.innerWidth < 768 ? 18 : 23;
+
   return (
-    <group ref={parentRef} position={[0, 2.2, 23]}>
+    <group ref={parentRef} position={[0, 2.2, z]}>
       <group ref={ref} scale={adjusctScale()}>
         <primitive object={gltf.scene} key={gltf} position={[0, 0, 0]} />
       </group>

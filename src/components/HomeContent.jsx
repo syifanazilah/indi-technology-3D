@@ -7,7 +7,7 @@ const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
     // tangan
     return (
       <div className="flex flex-col gap-5 md:w-2/3">
-        <h1 className="text-center text-lg">
+        <h1 className="text-center text-base md:text-lg">
         As we believe peoples are the most essential part to produce appropriate technology for a brighter future, we are enthusiastic to encourage them to improve their skills in technology
         </h1>
         <ButtonLink to={"/about"} className="bg-white text-black w-full">
@@ -20,8 +20,9 @@ const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
     // roket
     return (
       <div className="flex flex-col gap-5 md:w-2/3">
-        <h1 className="text-center text-lg">
-        We understand Technology is an important part of our society and will deliver us to a brighter future. But in the meantime, we also realized human is the most crucial part to encourage technology and make a brighter future for the world.
+        <h1 className="text-center text-base md:text-lg">
+        We understand Technology is an important part of our society and will deliver us to a brighter future. 
+        But in the meantime, we also realized human is the most crucial part to encourage technology and make a brighter future for the world.
         </h1>
         <ButtonLink to={"/about"} className="bg-white text-black w-full">
           visit -{">"}
@@ -33,7 +34,7 @@ const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
     // puzzle
     return (
       <div className="flex flex-col gap-5 md:w-2/3">
-        <h1 className="text-center text-lg">
+        <h1 className="text-center text-base md:text-lg">
           We are able to assist our partners to achieve their digital
           transformation goals with the righteous technology solution their need
         </h1>
@@ -47,7 +48,7 @@ const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
     // rumah
     return (
       <div className="flex flex-col gap-5 md:w-2/3">
-        <h1 className="text-center text-lg">
+        <h1 className="text-center text-base md:text-lg">
           We have a great desire to produce innovative technology that will able
           to improve society and encourage our partners with emerging technology
           and proper toward their goals
