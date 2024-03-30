@@ -4,28 +4,28 @@ import ButtonLink from "./ui/button";
 
 const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
   if (currentStage === 1) {
-    // roket
+    // tangan
     return (
-      <div>
+      <div className="flex flex-col gap-5 md:w-2/3">
         <h1 className="text-center text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro dolorem
-          mollitia, in consectetur nobis eius, illo sint inventore vel, minima
-          natus tempora iste numquam officia! Enim sapiente magnam fuga
-          provident.
+        As we believe peoples are the most essential part to produce appropriate technology for a brighter future, we are enthusiastic to encourage them to improve their skills in technology
         </h1>
+        <ButtonLink to={"/about"} className="bg-white text-black w-full">
+          visit -{">"}
+        </ButtonLink>
       </div>
     );
   }
   if (currentStage === 2) {
-    // tangan
+    // roket
     return (
-      <div>
+      <div className="flex flex-col gap-5 md:w-2/3">
         <h1 className="text-center text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-          distinctio aliquam tempore minima, quo unde odit animi vel quidem
-          perspiciatis quam veniam accusantium ipsa earum excepturi tenetur
-          voluptatum blanditiis quas!
+        We understand Technology is an important part of our society and will deliver us to a brighter future. But in the meantime, we also realized human is the most crucial part to encourage technology and make a brighter future for the world.
         </h1>
+        <ButtonLink to={"/about"} className="bg-white text-black w-full">
+          visit -{">"}
+        </ButtonLink>
       </div>
     );
   }
@@ -37,20 +37,24 @@ const HomeContent = ({ currentStage, isDisplay, setCurrentStage }) => {
           We are able to assist our partners to achieve their digital
           transformation goals with the righteous technology solution their need
         </h1>
-        <ButtonLink to={'/portfolio'} className="bg-white text-black w-full">visit -{">"}</ButtonLink>
+        <ButtonLink to={"/portfolio"} className="bg-white text-black w-full">
+          visit -{">"}
+        </ButtonLink>
       </div>
     );
   }
   if (currentStage === 4) {
     // rumah
     return (
-      <div>
+      <div className="flex flex-col gap-5 md:w-2/3">
         <h1 className="text-center text-lg">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor quod
-          sapiente similique id illum voluptatibus quidem? Dicta perferendis
-          numquam, accusamus rem sed voluptate amet tempora magnam impedit,
-          possimus atque neque!
+          We have a great desire to produce innovative technology that will able
+          to improve society and encourage our partners with emerging technology
+          and proper toward their goals
         </h1>
+        <ButtonLink to={"/about"} className="bg-white text-black w-full">
+          visit -{">"}
+        </ButtonLink>
       </div>
     );
   }

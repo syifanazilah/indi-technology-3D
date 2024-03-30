@@ -160,7 +160,7 @@ const Scene = ({
           setCurrentStage(2);
           setIsDisplay(true);
           break;
-        case normalizedRotation >= 3.7 && normalizedRotation <= 4.4:
+        case normalizedRotation >= 4.0 && normalizedRotation <= 4.7:
           setCurrentStage(1);
           setIsDisplay(true);
           break;
