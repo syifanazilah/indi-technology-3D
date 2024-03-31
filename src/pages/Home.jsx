@@ -214,7 +214,6 @@ const Scene = ({
         <Tangan />
         <Puzzle />
         <Rumah />
-        <RumahAsap />
         <Island />
         <Pohon />
         <Burung />
