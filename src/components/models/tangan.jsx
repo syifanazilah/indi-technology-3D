@@ -2,7 +2,6 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 import tangan from "../../assets/3D/tangan.glb";
 import adjusctScale from "../../constant/adjustScale";
 import { useEffect } from "react";
-import { useControls } from "leva";
 
 const Tangan = () => {
   const gltf = useGLTF(tangan);

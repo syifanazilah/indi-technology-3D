@@ -1,7 +1,6 @@
 import {
   OrbitControls,
   PerspectiveCamera,
-  useHelper,
   useProgress,
 } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
@@ -10,7 +9,6 @@ import Island from "../components/models/Island";
 import Rumah from "../components/models/home";
 import Puzzle from "../components/models/puzzle";
 import Tangan from "../components/models/tangan";
-import RumahAsap from "../components/models/rumahasap";
 import Rocket from "../components/models/rocket";
 import HomeContent from "../components/HomeContent";
 import Greeting from "./Greeting";
@@ -19,12 +17,7 @@ import Loader from "../components/Loader";
 import Maskot from "../components/models/Maskot";
 import Burung from "../components/models/burung";
 import Awan from "../components/models/awan";
-import useCurrentHour from "../constant/currentHour";
-import { useControls } from "leva";
-import { AxesHelper, SpotLightHelper } from "three";
 import { useNightContext } from "../context/nightContext";
-import { Bloom, EffectComposer } from "@react-three/postprocessing";
-import Matahari from "../components/models/matahari";
 import adjustAngle from "../constant/adjustAngle";
 
 const Scene = ({
@@ -238,7 +231,7 @@ const Home = () => {
         className={`${
           isDisplay ? "home-content" : "home-content-hidden"
         } transition container max-w-screen-md absolute top-32 md:top-36 w-full left-1/2 flex items-center justify-center -translate-x-1/2 z-10`}>
-        <HomeContent currentStage={currentStage} isDisplay={isDisplay} />
+        <HomeContent currentStage={currentStage} />
       </div>
 
       {/* <div className="relative">

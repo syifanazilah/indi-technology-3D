@@ -1,10 +1,6 @@
 import React from "react";
-import { Carousel } from "flowbite-react";
-import portfolio from "/assets/icons/portfolio.png"
-import portfolio2 from "/assets/icons/portfolio2.png"
-import portfolio3 from "/assets/icons/portfolio3.png"
+import portfolio from "/assets/icons/portfolio.png";
 import { Link } from "react-router-dom";
-
 
 export const PortfolioDetail1 = () => {
   return (
@@ -16,11 +12,7 @@ export const PortfolioDetail1 = () => {
       </div>
 
       <div className="mt-12">
-        <img
-          src={portfolio}
-          alt="..."
-          className=""
-        />
+        <img src={portfolio} alt="..." className="" />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -39,19 +31,32 @@ export const PortfolioDetail1 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg ">Ajang debat dalam rangkaian kegiatan pemilihan presiden ( pilpres) merupakan acara yang diharapkan dapat memperlihatkan visi misi calon presiden dan calon wakil presiden, termasuk penguasaan isu yang dibahas. Momen debat tentu saja perlu dimanfaatkan untuk menarik hati rakyar agar nantinya bisa menentukan pilihan. Berbagai materi debat dikemas dengan apik oleh masing-masing tim sukses masing-masing kubu.
-Indi Technology dipercaya oleh KPU RI untuk membangun Sistem Registrasi dalam penyelenggaraan acara Debat Pilpres 2019 . Sistem registrasi ini merupakan pengamanan untuk mem-filter tamu undangan yang sesuai untuk masuk area debat. Sistem ini dilengkapi keamanan enkripsi melalui qrcode dan pengamanan melalui pemindaian kamera.</p>
+            <p className="text-lg ">
+              Ajang debat dalam rangkaian kegiatan pemilihan presiden ( pilpres)
+              merupakan acara yang diharapkan dapat memperlihatkan visi misi
+              calon presiden dan calon wakil presiden, termasuk penguasaan isu
+              yang dibahas. Momen debat tentu saja perlu dimanfaatkan untuk
+              menarik hati rakyar agar nantinya bisa menentukan pilihan.
+              Berbagai materi debat dikemas dengan apik oleh masing-masing tim
+              sukses masing-masing kubu. Indi Technology dipercaya oleh KPU RI
+              untuk membangun Sistem Registrasi dalam penyelenggaraan acara
+              Debat Pilpres 2019 . Sistem registrasi ini merupakan pengamanan
+              untuk mem-filter tamu undangan yang sesuai untuk masuk area debat.
+              Sistem ini dilengkapi keamanan enkripsi melalui qrcode dan
+              pengamanan melalui pemindaian kamera.
+            </p>
           </div>
         </div>
       </div>
 
       <div className="pl-12 mb-10 text-start w-full">
-        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={"/portfolio"}>
+          Back
+        </Link>
       </div>
     </section>
   );
 };
-
 
 export const PortfolioDetail2 = () => {
   return (
@@ -63,11 +68,7 @@ export const PortfolioDetail2 = () => {
       </div>
 
       <div className="mt-12">
-        <img
-          src={portfolio}
-          alt="..."
-          className=""
-        />
+        <img src={portfolio} alt="..." className="" />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -86,41 +87,52 @@ export const PortfolioDetail2 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg mb-4">Amalia Cosmetics merupakan website ecommerce yang menjual kosmetik kecantikan. Amalia berpijak di atas kecantikan holistik yang menyinergikan tiga elemen:</p>
-              <p className="text-lg mb-4">⚪ Halal beauty<br/>
-              Mengispirasi wanita muslim modern untuk mentaati kaidah islami termasuk dalam pemakaian kosmetik
-              Amalia merupakan kosmetik halal yang hanya menggunakan bahan alami berkualitas tinggi, melalui proses produksi berteknologi tinggi dengan cara yang halal.</p>
-              <p className="text-lg mb-4">⚪ Luxury beauty <br />
-              membentuk kepercayaan diri sesuai tuntutan gaya hidup berkelas Amalia merepresentasikan wanita mandiri bergaya elegan dan mandiri</p>
-              <p className="text-lg mb-4">⚪ Beauty by giving <br />
-              Berbagi manfaat untuk sekitar Amalia memberi insipirasi untuk mengembangkan kebaikan hati melalui kegiatan amal /zakat atau sedekah.</p>
+            <p className="text-lg mb-4">
+              Amalia Cosmetics merupakan website ecommerce yang menjual kosmetik
+              kecantikan. Amalia berpijak di atas kecantikan holistik yang
+              menyinergikan tiga elemen:
+            </p>
+            <p className="text-lg mb-4">
+              ⚪ Halal beauty
+              <br />
+              Mengispirasi wanita muslim modern untuk mentaati kaidah islami
+              termasuk dalam pemakaian kosmetik Amalia merupakan kosmetik halal
+              yang hanya menggunakan bahan alami berkualitas tinggi, melalui
+              proses produksi berteknologi tinggi dengan cara yang halal.
+            </p>
+            <p className="text-lg mb-4">
+              ⚪ Luxury beauty <br />
+              membentuk kepercayaan diri sesuai tuntutan gaya hidup berkelas
+              Amalia merepresentasikan wanita mandiri bergaya elegan dan mandiri
+            </p>
+            <p className="text-lg mb-4">
+              ⚪ Beauty by giving <br />
+              Berbagi manfaat untuk sekitar Amalia memberi insipirasi untuk
+              mengembangkan kebaikan hati melalui kegiatan amal /zakat atau
+              sedekah.
+            </p>
           </div>
         </div>
       </div>
 
       <div className="pl-12 mb-10 text-start w-full">
-        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={"/portfolio"}>
+          Back
+        </Link>
       </div>
     </section>
   );
 };
-
 
 export const PortfolioDetail3 = () => {
   return (
     <section className="mx-10 flex flex-col items-center">
       <div className="text-center">
-        <h1 className="text-white font-medium text-3xl">
-          AhwalNote App
-        </h1>
+        <h1 className="text-white font-medium text-3xl">AhwalNote App</h1>
       </div>
 
       <div className="mt-12">
-        <img
-          src={portfolio}
-          alt="..."
-          className=""
-        />
+        <img src={portfolio} alt="..." className="" />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -139,51 +151,84 @@ export const PortfolioDetail3 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg mb-4">AhwalNote adalah sebuah aplikasi islami yang dapat membantu pengguna dalam menyikapi suatu keadaan atau kondisi sesuai dengan tuntunan Al-quran dan hadits.</p>
-              <p className="text-lg mb-4">Dalam bahasa arab, kata Ahwal (أحوال) adalah bentuk jamak dari kata haal (حال) yang artinya adalah keadaan atau kondisi yang berhubungan dengan kejadian atau seseorang. Sedangkan Note dalam bahasa inggris artinya adalah catatan, sehingga AhwalNote bisa diartikan dengan catatan keadaan dari seseorang.</p>
-              <p className="text-lg mb-4">Fitur-fitur yang disediakan : <br />
+            <p className="text-lg mb-4">
+              AhwalNote adalah sebuah aplikasi islami yang dapat membantu
+              pengguna dalam menyikapi suatu keadaan atau kondisi sesuai dengan
+              tuntunan Al-quran dan hadits.
+            </p>
+            <p className="text-lg mb-4">
+              Dalam bahasa arab, kata Ahwal (أحوال) adalah bentuk jamak dari
+              kata haal (حال) yang artinya adalah keadaan atau kondisi yang
+              berhubungan dengan kejadian atau seseorang. Sedangkan Note dalam
+              bahasa inggris artinya adalah catatan, sehingga AhwalNote bisa
+              diartikan dengan catatan keadaan dari seseorang.
+            </p>
+            <p className="text-lg mb-4">
+              Fitur-fitur yang disediakan : <br />
               ★ Catatan Keadaan <br />
-              Pengguna dapat menuliskan keadaan yang akan menampilkan ayat Al-quran atau hadist yang berkaitan.</p>
-              <p className="text-lg mb-4">★ Riwayat dan Favorit <br />
-              Menyimpan daftar keadaan yang pernah dituliskan</p>
-              <p className="text-lg mb-4">★ Kategori <br />
-              Mengelompokan ayat Quran dan Hadist menjadi kategori-kategori yang dapat dibaca setiap saat. kategori-kategori tersebut seperti kebesaran Allah, adab rasul, keutamaan alquran, pergaulan, sedekah, ilmu, orang tua, sholat, kumpulan doa harian dan lain-lain</p>
-              <p className="text-lg mb-4">★ Berbagi <br />
-              Memungkinkan pengguna membagikan keadaan, arti dari ayat Al quran ataupun hadist lewat pesan maupun sosial media</p>
-              <p className="text-lg mb-4">★ TexttoSpeech <br />Memungkinkan pengguna mendengarkan suara dari ayat Quran atau hadist yang tersedia. disarankan menggunakan Google TextToSpeech agar dapat menikmati fitur texttospeech lebih baik.</p>
-              <p className="text-lg mb-4">★Notifikasi Harian <br />
-              Pengguna akan menerima notifikasi nasihat islam tiap harinya secara acak dari ayat Quran dan Hadist</p>
-              <p className="text-lg mb-4">★Widget <br />
-              Pengguna dapat menambahkan widget ahwal note pada homescreen.</p>
-              <p className="text-lg mb-4">★Ramadhan <br />
-              Berisi kumpulan ayat al-quran dan hadist mengenai berkah bulan ramadhan, seperti adab puasa, sunnah tarawih, turunnya al-quran dan malam lailatul qadr</p>
-              </div>
+              Pengguna dapat menuliskan keadaan yang akan menampilkan ayat
+              Al-quran atau hadist yang berkaitan.
+            </p>
+            <p className="text-lg mb-4">
+              ★ Riwayat dan Favorit <br />
+              Menyimpan daftar keadaan yang pernah dituliskan
+            </p>
+            <p className="text-lg mb-4">
+              ★ Kategori <br />
+              Mengelompokan ayat Quran dan Hadist menjadi kategori-kategori yang
+              dapat dibaca setiap saat. kategori-kategori tersebut seperti
+              kebesaran Allah, adab rasul, keutamaan alquran, pergaulan,
+              sedekah, ilmu, orang tua, sholat, kumpulan doa harian dan
+              lain-lain
+            </p>
+            <p className="text-lg mb-4">
+              ★ Berbagi <br />
+              Memungkinkan pengguna membagikan keadaan, arti dari ayat Al quran
+              ataupun hadist lewat pesan maupun sosial media
+            </p>
+            <p className="text-lg mb-4">
+              ★ TexttoSpeech <br />
+              Memungkinkan pengguna mendengarkan suara dari ayat Quran atau
+              hadist yang tersedia. disarankan menggunakan Google TextToSpeech
+              agar dapat menikmati fitur texttospeech lebih baik.
+            </p>
+            <p className="text-lg mb-4">
+              ★Notifikasi Harian <br />
+              Pengguna akan menerima notifikasi nasihat islam tiap harinya
+              secara acak dari ayat Quran dan Hadist
+            </p>
+            <p className="text-lg mb-4">
+              ★Widget <br />
+              Pengguna dapat menambahkan widget ahwal note pada homescreen.
+            </p>
+            <p className="text-lg mb-4">
+              ★Ramadhan <br />
+              Berisi kumpulan ayat al-quran dan hadist mengenai berkah bulan
+              ramadhan, seperti adab puasa, sunnah tarawih, turunnya al-quran
+              dan malam lailatul qadr
+            </p>
+          </div>
         </div>
       </div>
 
       <div className="pl-12 mb-10 text-start w-full">
-        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={"/portfolio"}>
+          Back
+        </Link>
       </div>
     </section>
   );
 };
-
 
 export const PortfolioDetail4 = () => {
   return (
     <section className="mx-10 flex flex-col items-center">
       <div className="text-center">
-        <h1 className="text-white font-medium text-3xl">
-          Denny AK Attorney
-        </h1>
+        <h1 className="text-white font-medium text-3xl">Denny AK Attorney</h1>
       </div>
 
       <div className="mt-12">
-        <img
-          src={portfolio}
-          alt="..."
-          className=""
-        />
+        <img src={portfolio} alt="..." className="" />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -202,34 +247,39 @@ export const PortfolioDetail4 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg ">DAK attorney is an Indonesia lawyer firm headquartered in  Jakarta, that serve legal and law advocation. DAK attorney is focus on helping small communities who are entangled with undue legal cases. Founded in 2009 by Denny Andrian K in South Jakarta. Denny AK Attorney service legal consultans have worked with many of law cases. We have professional, honest and hardworking career. We believe that everyone deserves simple and affordable access to legal services and helps you identify the little and big ways the law can make your life better.</p>
+            <p className="text-lg ">
+              DAK attorney is an Indonesia lawyer firm headquartered in Jakarta,
+              that serve legal and law advocation. DAK attorney is focus on
+              helping small communities who are entangled with undue legal
+              cases. Founded in 2009 by Denny Andrian K in South Jakarta. Denny
+              AK Attorney service legal consultans have worked with many of law
+              cases. We have professional, honest and hardworking career. We
+              believe that everyone deserves simple and affordable access to
+              legal services and helps you identify the little and big ways the
+              law can make your life better.
+            </p>
           </div>
         </div>
       </div>
 
       <div className="pl-12 mb-10 text-start w-full">
-        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={"/portfolio"}>
+          Back
+        </Link>
       </div>
     </section>
   );
 };
-
 
 export const PortfolioDetail5 = () => {
   return (
     <section className="mx-10 flex flex-col items-center">
       <div className="text-center">
-        <h1 className="text-white font-medium text-3xl">
-          Website project 5
-        </h1>
+        <h1 className="text-white font-medium text-3xl">Website project 5</h1>
       </div>
 
       <div className="mt-12">
-        <img
-          src={portfolio}
-          alt="..."
-          className=""
-        />
+        <img src={portfolio} alt="..." className="" />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -248,34 +298,35 @@ export const PortfolioDetail5 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+            <p className="text-lg ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+              atque tempore cumque esse exercitationem autem accusantium. Nam
+              quisquam doloremque inventore atque voluptatibus ratione, nihil,
+              expedita unde iusto delectus dolor accusantium maxime quae eius
+              quaerat accusamus, quasi autem optio dignissimos tempore.
+            </p>
           </div>
         </div>
       </div>
 
       <div className="pl-12 mb-10 text-start w-full">
-        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={"/portfolio"}>
+          Back
+        </Link>
       </div>
     </section>
   );
 };
-
 
 export const PortfolioDetail6 = () => {
   return (
     <section className="mx-10 flex flex-col items-center">
       <div className="text-center">
-        <h1 className="text-white font-medium text-3xl">
-          Website project 6
-        </h1>
+        <h1 className="text-white font-medium text-3xl">Website project 6</h1>
       </div>
 
       <div className="mt-12">
-        <img
-          src={portfolio}
-          alt="..."
-          className=""
-        />
+        <img src={portfolio} alt="..." className="" />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -294,34 +345,35 @@ export const PortfolioDetail6 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+            <p className="text-lg ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+              atque tempore cumque esse exercitationem autem accusantium. Nam
+              quisquam doloremque inventore atque voluptatibus ratione, nihil,
+              expedita unde iusto delectus dolor accusantium maxime quae eius
+              quaerat accusamus, quasi autem optio dignissimos tempore.
+            </p>
           </div>
         </div>
       </div>
 
       <div className="pl-12 mb-10 text-start w-full">
-        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={"/portfolio"}>
+          Back
+        </Link>
       </div>
     </section>
   );
 };
-
 
 export const PortfolioDetail7 = () => {
   return (
     <section className="mx-10 flex flex-col items-center">
       <div className="text-center">
-        <h1 className="text-white font-medium text-3xl">
-          Website project 7
-        </h1>
+        <h1 className="text-white font-medium text-3xl">Website project 7</h1>
       </div>
 
       <div className="mt-12">
-        <img
-          src={portfolio}
-          alt="..."
-          className=""
-        />
+        <img src={portfolio} alt="..." className="" />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -340,34 +392,35 @@ export const PortfolioDetail7 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+            <p className="text-lg ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+              atque tempore cumque esse exercitationem autem accusantium. Nam
+              quisquam doloremque inventore atque voluptatibus ratione, nihil,
+              expedita unde iusto delectus dolor accusantium maxime quae eius
+              quaerat accusamus, quasi autem optio dignissimos tempore.
+            </p>
           </div>
         </div>
       </div>
 
       <div className="pl-12 mb-10 text-start w-full">
-        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={"/portfolio"}>
+          Back
+        </Link>
       </div>
     </section>
   );
 };
 
-
 export const PortfolioDetail8 = () => {
   return (
     <section className="mx-10 flex flex-col items-center">
       <div className="text-center">
-        <h1 className="text-white font-medium text-3xl">
-          Website project 8
-        </h1>
+        <h1 className="text-white font-medium text-3xl">Website project 8</h1>
       </div>
 
       <div className="mt-12">
-        <img
-          src={portfolio}
-          alt="..."
-          className=""
-        />
+        <img src={portfolio} alt="..." className="" />
       </div>
 
       <div className="mt-[5rem] mb-10 flex items-center flex-col space-y-8">
@@ -386,13 +439,21 @@ export const PortfolioDetail8 = () => {
           </div>
 
           <div className="w-[32rem]">
-              <p className="text-lg ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio atque tempore cumque esse exercitationem autem accusantium. Nam quisquam doloremque inventore atque voluptatibus ratione, nihil, expedita unde iusto delectus dolor accusantium maxime quae eius quaerat accusamus, quasi autem optio dignissimos tempore.</p>
+            <p className="text-lg ">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+              atque tempore cumque esse exercitationem autem accusantium. Nam
+              quisquam doloremque inventore atque voluptatibus ratione, nihil,
+              expedita unde iusto delectus dolor accusantium maxime quae eius
+              quaerat accusamus, quasi autem optio dignissimos tempore.
+            </p>
           </div>
         </div>
       </div>
 
       <div className="pl-12 mb-10 text-start w-full">
-        <Link className="px-5 py-2 rounded-md bg-blue-500" to={'/portfolio'}>Back</Link>
+        <Link className="px-5 py-2 rounded-md bg-blue-500" to={"/portfolio"}>
+          Back
+        </Link>
       </div>
     </section>
   );
