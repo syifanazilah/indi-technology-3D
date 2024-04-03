@@ -1,10 +1,10 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { forwardRef, useEffect } from "react";
-import maskot from "../../assets/3D/maskotutama3.glb";
+import maskot from "../../assets/3D/maskot.glb";
 import adjusctScale from "../../constant/adjustScale";
 import { useFrame } from "@react-three/fiber";
 
-const Maskot = forwardRef(({ isRotating }, parentRef) => {
+const Maskot = forwardRef(() => {
   const gltf = useGLTF(maskot);
 
   const { ref, actions, names } = useAnimations(gltf.animations);
@@ -33,7 +33,7 @@ const Maskot = forwardRef(({ isRotating }, parentRef) => {
   const z = window.innerWidth < 768 ? 18 : 23;
 
   return (
-    <group ref={parentRef} position={[0, 2.2, z]}>
+    <group position={[0, 2.2, z]}>
       <group ref={ref} scale={adjusctScale()}>
         <primitive object={gltf.scene} key={gltf} position={[0, 0, 0]} />
       </group>
